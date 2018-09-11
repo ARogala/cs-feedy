@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 
 // import components
 import FeedBtnContainer from './components/FeedBtnContainer';
-import FeedBtnSearchBar from './components/FeedBtnSearchBar';
-import FeedBtnList      from './components/FeedBtnList';
-import FeedBtnListItem  from './components/FeedBtnListItem';
 
 //import styles
 import './App.css';
@@ -19,6 +16,7 @@ class App extends Component {
           <h1 className="App-title">CS Feedy</h1>
         </header>
 
+        <FeedBtnContainer />
       </div>
     );
   }
