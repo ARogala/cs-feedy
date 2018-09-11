@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // import components
 import FeedBtnSearchBar from './components/FeedBtnSearchBar';
 import FeedBtnList from './components/FeedBtnList';
+import FeedOutput from './components/FeedOutput';
 
 //import styles
 import './App.css';
@@ -23,6 +24,10 @@ class App extends Component {
             allFeeds={this.props.allFeeds}
           />
         </div>
+
+        <main role="main" className="feedOutput">
+          <FeedOutput />
+        </main>
 
       </div>
     );
