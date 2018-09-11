@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function FeedBtnList(props) {
-
+	const handleClick = props.handleClick;
 	const allFeeds = props.allFeeds;
 
 	//https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
@@ -32,9 +32,9 @@ function FeedBtnList(props) {
 
 	//groupedFeeds is an object with arrays of feeds for each category {category1:[{...}], category2:[{...}], ...}
 	const groupedFeeds = groupBy(allFeeds, 'category');
-	console.log(groupedFeeds);
+	//console.log(groupedFeeds);
 	const allCategories = Object.keys(groupedFeeds);
-	console.log(allCategories);
+	//console.log(allCategories);
 
 	/*
 		for each feed category if the number of feeds is greater than 1
@@ -51,6 +51,8 @@ function FeedBtnList(props) {
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
+									onClick={() => handleClick(feed.url)}
+									onKeyPress={() => handleClick(feed.url)}
 									key={feed.id}
 									role="button"
 									tabIndex="0"
@@ -72,6 +74,8 @@ function FeedBtnList(props) {
 			singleFeed.push(
 				<li
 					className="singleFeed"
+					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
+					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					role="button"
 					tabIndex="0"
@@ -94,5 +98,6 @@ function FeedBtnList(props) {
 export default FeedBtnList;
 
 FeedBtnList.propTypes = {
-  allFeeds: PropTypes.array.isRequired
+  allFeeds: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired
 }

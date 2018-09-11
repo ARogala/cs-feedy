@@ -24,12 +24,13 @@ class App extends Component {
     const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
     let parser = new RSSParser();
 
-    parser.parseURL(CORS_PROXY + feedURL, function(err, feed){
+    parser.parseURL(CORS_PROXY + feedURL, (err, feed) => {
       this.setState({feed: feed});
       console.log(feed);
       this.setState({error: err});
       console.log(err);
     });
+    //console.log(feedURL);
   }
 
 
@@ -44,6 +45,7 @@ class App extends Component {
           <FeedBtnSearchBar />
           <FeedBtnList
             allFeeds={this.props.allFeeds}
+            handleClick={(feedURL) => this.parseFeed(feedURL)}
           />
         </div>
 
