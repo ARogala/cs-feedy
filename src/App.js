@@ -1,4 +1,14 @@
+// import dependencies
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+// import components
+import FeedBtnContainer from './components/FeedBtnContainer';
+import FeedBtnSearchBar from './components/FeedBtnSearchBar';
+import FeedBtnList      from './components/FeedBtnList';
+import FeedBtnListItem  from './components/FeedBtnListItem';
+
+//import styles
 import './App.css';
 
 class App extends Component {
@@ -6,8 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-
-          <h1 className="App-title">Welcome to CS Feedy</h1>
+          <h1 className="App-title">CS Feedy</h1>
         </header>
 
       </div>
@@ -16,3 +25,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+App.propTypes = {
+  allFeeds: PropTypes.array
+}
