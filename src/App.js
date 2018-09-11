@@ -1,6 +1,7 @@
 // import dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import RSSParser from 'rss-parser';
 
 // import components
 import FeedBtnSearchBar from './components/FeedBtnSearchBar';
@@ -11,6 +12,27 @@ import FeedOutput from './components/FeedOutput';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      feed: {},
+      error: null
+    };
+  }
+
+  parseFeed(feedURL) {
+    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+    let parser = new RSSParser();
+
+    parser.parseURL(CORS_PROXY + feedURL, function(err, feed){
+      this.setState({feed: feed});
+      console.log(feed);
+      this.setState({error: err});
+      console.log(err);
+    });
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -26,7 +48,10 @@ class App extends Component {
         </div>
 
         <main role="main" className="feedOutput">
-          <FeedOutput />
+          <FeedOutput
+            feed={this.state.feed}
+            error={this.state.error}
+          />
         </main>
 
       </div>
