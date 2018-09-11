@@ -1,16 +1,18 @@
 // import dependencies
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-//import components
-import FeedBtnListItem from './FeedBtnListItem';
+function FeedBtnList(props) {
 
-function FeedBtnList() {
 	return (
 		<ul>
-			<FeedBtnListItem />
+			<li>RSS Feed button/link</li>
 		</ul>
 	);
 }
 
 export default FeedBtnList;
+
+FeedBtnList.propTypes = {
+  allFeeds: PropTypes.array
+}
