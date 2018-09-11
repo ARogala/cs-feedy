@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 function FeedBtnSearhBar() {
 	return (
-		<input />
+		<input
+			type="text"
+			placeholder="Search your feeds..."
+		/>
 	);
 }
 

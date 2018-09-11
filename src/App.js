@@ -19,7 +19,9 @@ class App extends Component {
 
         <div className="searchBox">
           <FeedBtnSearchBar />
-          <FeedBtnList />
+          <FeedBtnList
+            allFeeds={this.props.allFeeds}
+          />
         </div>
 
       </div>
@@ -31,5 +33,5 @@ export default App;
 
 
 App.propTypes = {
-  allFeeds: PropTypes.array
+  allFeeds: PropTypes.array.isRequired
 }
