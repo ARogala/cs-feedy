@@ -17,22 +17,34 @@ class App extends Component {
     super(props);
     this.state = {
       feed: {},
-      error: null
+      error: null,
+      loading: null
     };
   }
 
   parseFeed(feedURL) {
+    console.log(feedURL);
     // Note: some RSS feeds can't be loaded in the browser due to CORS security.
     // To get around this, you can use a proxy.
     const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
     RSSParser.parseURL(CORS_PROXY + feedURL, (err, parsed) => {
-      this.setState({feed: parsed.feed});
-      //console.log(parsed.feed);
-      this.setState({error: err});
-      //console.log(err);
+      console.log(err);
+      console.log(parsed);
+      /*
+        when the parser throws an error parsed will be undefined
+      */
+      if(err !== null) {
+        this.setState({error: err});
+        this.setState({loading: false});
+      }
+      else {
+        this.setState({feed: parsed.feed});
+        this.setState({loading: false});
+      }
+
     });
-    //console.log(feedURL);
+
   }
 
 
@@ -47,7 +59,11 @@ class App extends Component {
           <FeedBtnSearchBar />
           <FeedBtnList
             allFeeds={this.props.allFeeds}
-            handleClick={(feedURL) => this.parseFeed(feedURL)}
+            handleClick={(feedURL) => {
+              this.setState({loading: true});
+              this.setState({error: null});
+              this.parseFeed(feedURL);
+            }}
           />
         </div>
 
@@ -55,6 +71,7 @@ class App extends Component {
           <FeedOutput
             feed={this.state.feed}
             error={this.state.error}
+            loading={this.state.loading}
           />
         </main>
 

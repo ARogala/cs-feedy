@@ -17,6 +17,7 @@ let allFeeds = [
 		name: 'HTML5 Rocks',
 		category: 'WeB Development',
 		url: 'http://feeds.feedburner.com/html5rocks',
+		// url: 'http://feeds.bbci.co.uk/news/world/rss.xml',
 		id: 1
 	},
 

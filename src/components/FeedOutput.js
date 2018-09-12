@@ -8,6 +8,24 @@ function FeedOutput(props) {
 	//console.log(props.error);
 	const feed = props.feed;
 	const feedItems = feed['entries'];
+	if(props.error !== null) {
+		console.log(props.error);
+		return (
+			<div>
+				<h1>Sorry the program had an error try a different feed</h1>
+				<p>Make sure you typed in the correct feed url.
+				If you are sure you typed in the correct feed url
+				and you are still experiencing errors know that
+				CSFeedy may not work with every feed. (CSFeedy
+				can not parse feeds that return HTML)</p>
+			</div>
+		);
+	}
+	if(props.loading) {
+		return (
+			<h1>LOADING......</h1>
+		);
+	}
 	if(Object.keys(feed).length !== 0) {
 		const feedContent = feedItems.map((item, index) => {
 			return (
@@ -33,6 +51,7 @@ function FeedOutput(props) {
 			<div>Click a feed button</div>
 		);
 	}
+
 }
 
 export default FeedOutput;
