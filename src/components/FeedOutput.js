@@ -9,7 +9,6 @@ function FeedOutput(props) {
 	const feed = props.feed;
 	const feedItems = feed['entries'];
 	if(props.error !== null) {
-		console.log(props.error);
 		return (
 			<div>
 				<h1>Sorry the program had an error try a different feed</h1>
@@ -48,7 +47,7 @@ function FeedOutput(props) {
 	}
 	else if(Object.keys(feed).length === 0) {
 		return (
-			<div>Click a feed button</div>
+			<h1>Click a feed button</h1>
 		);
 	}
 
@@ -58,5 +57,6 @@ export default FeedOutput;
 
 FeedOutput.propTypes = {
   feed: PropTypes.object.isRequired,
-
+  loading: PropTypes.bool,
+  error: PropTypes.object
 }

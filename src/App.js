@@ -23,14 +23,13 @@ class App extends Component {
   }
 
   parseFeed(feedURL) {
-    console.log(feedURL);
     // Note: some RSS feeds can't be loaded in the browser due to CORS security.
     // To get around this, you can use a proxy.
     const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
     RSSParser.parseURL(CORS_PROXY + feedURL, (err, parsed) => {
-      console.log(err);
-      console.log(parsed);
+      //console.log(err);
+      //console.log(parsed);
       /*
         when the parser throws an error parsed will be undefined
       */
