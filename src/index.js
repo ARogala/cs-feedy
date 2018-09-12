@@ -95,6 +95,13 @@ let allFeeds = [
 		category: 'web Development',
 		url: 'https://javascriptweekly.com/rss/1a177hd2',
 		id: 12
+	},
+
+	{
+		name: '9GAG',
+		category: 'fun',
+		url: 'http://9gagrss.com/feed/',
+		id: 13
 	}
 ];
 

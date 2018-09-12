@@ -8,6 +8,7 @@ import FeedBtnSearchBar from './components/FeedBtnSearchBar';
 import FeedBtnList from './components/FeedBtnList';
 import FeedOutput from './components/FeedOutput';
 
+
 //import styles
 import './App.css';
 
@@ -24,11 +25,10 @@ class App extends Component {
     // Note: some RSS feeds can't be loaded in the browser due to CORS security.
     // To get around this, you can use a proxy.
     const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-    const parser = new RSSParser();
 
-    parser.parseURL(CORS_PROXY + feedURL, (err, feed) => {
-      this.setState({feed: feed});
-      //console.log(feed);
+    RSSParser.parseURL(CORS_PROXY + feedURL, (err, parsed) => {
+      this.setState({feed: parsed.feed});
+      //console.log(parsed.feed);
       this.setState({error: err});
       //console.log(err);
     });
