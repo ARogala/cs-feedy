@@ -7,6 +7,7 @@ import RSSParser from 'rss-parser';
 import FeedBtnSearchBar from './components/FeedBtnSearchBar';
 import FeedBtnList from './components/FeedBtnList';
 import FeedOutput from './components/FeedOutput';
+import InputFeedForm from './components/InputFeedForm';
 
 
 //import styles
@@ -53,6 +54,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">CS Feedy</h1>
         </header>
+        <InputFeedForm />
 
         <div className="searchBox">
           <FeedBtnSearchBar />
