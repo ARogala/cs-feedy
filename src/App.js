@@ -10,7 +10,6 @@ import FeedOutput from './components/FeedOutput';
 import InputFeedForm from './components/InputFeedForm';
 import ManageFeeds from './components/ManageFeeds';
 
-
 //import styles
 import './App.css';
 

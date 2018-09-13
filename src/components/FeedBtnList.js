@@ -62,7 +62,6 @@ function FeedBtnList(props) {
 									onKeyPress={() => handleClick(feed.url)}
 									key={feed.id}
 									id={feed.id}
-									//key={i}
 									role="button"
 									tabIndex="0"
 								>
@@ -80,16 +79,15 @@ function FeedBtnList(props) {
 	const singleFeed = [];
 	for(let i = 0; i < allCategories.length; i++) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
-			groupedFeeds[allCategories[i]].id = feedId;
+			groupedFeeds[allCategories[i]][0].id = feedId;
 			feedId = feedId + 1;
 			singleFeed.push(
 				<li
 					className="singleFeed"
 					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
-					key={groupedFeeds[allCategories[i]].id}
-					id={groupedFeeds[allCategories[i]].id}
-					//key={i}
+					key={groupedFeeds[allCategories[i]][0].id}
+					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
 					tabIndex="0"
 				>
