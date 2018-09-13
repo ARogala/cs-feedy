@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function FeedBtnList(props) {
+	let feedId = 0;
 	const handleClick = props.handleClick;
 	const allFeeds = props.allFeeds;
 
@@ -49,11 +50,15 @@ function FeedBtnList(props) {
 					<span>{allCategories[i]}:</span>
 					<ul aria-label="submenu" className="dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
+							feed.id = feedId;
+							feedId = feedId + 1;
 							return (
 								<li
 									onClick={() => handleClick(feed.url)}
 									onKeyPress={() => handleClick(feed.url)}
 									key={feed.id}
+									id={feed.id}
+									//key={i}
 									role="button"
 									tabIndex="0"
 								>
@@ -71,12 +76,16 @@ function FeedBtnList(props) {
 	const singleFeed = [];
 	for(let i = 0; i < allCategories.length; i++) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
+			groupedFeeds[allCategories[i]].id = feedId;
+			feedId = feedId + 1;
 			singleFeed.push(
 				<li
 					className="singleFeed"
 					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
-					key={groupedFeeds[allCategories[i]][0].id}
+					key={groupedFeeds[allCategories[i]].id}
+					id={groupedFeeds[allCategories[i]].id}
+					//key={i}
 					role="button"
 					tabIndex="0"
 				>
@@ -93,6 +102,7 @@ function FeedBtnList(props) {
 			{singleFeed}
 		</ul>
 	);
+
 }
 
 export default FeedBtnList;

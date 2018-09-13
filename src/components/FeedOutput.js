@@ -16,7 +16,9 @@ function FeedOutput(props) {
 				If you are sure you typed in the correct feed url
 				and you are still experiencing errors know that
 				CSFeedy may not work with every feed. (CSFeedy
-				can not parse feeds that return HTML)</p>
+				can not parse feeds that return HTML) It is also
+				possible that the CORS proxy is down or CSFeedy has
+				exceded the number of free redirect requests</p>
 			</div>
 		);
 	}
@@ -50,7 +52,6 @@ function FeedOutput(props) {
 			<h1>Click a feed button</h1>
 		);
 	}
-
 }
 
 export default FeedOutput;

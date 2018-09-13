@@ -19,7 +19,8 @@ class App extends Component {
     this.state = {
       feed: {},
       error: null,
-      loading: null
+      loading: null,
+      allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]')
     };
   }
 
@@ -47,19 +48,20 @@ class App extends Component {
 
   }
 
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">CS Feedy</h1>
         </header>
-        <InputFeedForm />
+        <InputFeedForm
+          allFeeds={this.state.allFeeds}
+        />
 
         <div className="searchBox">
           <FeedBtnSearchBar />
           <FeedBtnList
-            allFeeds={this.props.allFeeds}
+            allFeeds={this.state.allFeeds}
             handleClick={(feedURL) => {
               this.setState({loading: true});
               this.setState({error: null});
@@ -82,8 +84,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-App.propTypes = {
-  allFeeds: PropTypes.array.isRequired
-}
