@@ -8,6 +8,7 @@ import FeedBtnSearchBar from './components/FeedBtnSearchBar';
 import FeedBtnList from './components/FeedBtnList';
 import FeedOutput from './components/FeedOutput';
 import InputFeedForm from './components/InputFeedForm';
+import ManageFeeds from './components/ManageFeeds';
 
 
 //import styles
@@ -55,6 +56,10 @@ class App extends Component {
           <h1 className="App-title">CS Feedy</h1>
         </header>
         <InputFeedForm
+          allFeeds={this.state.allFeeds}
+        />
+
+        <ManageFeeds
           allFeeds={this.state.allFeeds}
         />
 

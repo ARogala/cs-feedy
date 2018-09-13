@@ -116,14 +116,6 @@ class InputFeedForm extends React.Component {
 						</button>
 					</div>
 				</fieldset>
-				<fieldset>
-					<legend>Back Up and Restore Your Feeds</legend>
-					<label htmlFor="backUpBtn">Click button below to backup your feeds</label>
-					<button type="button" id="backUpBtn" download className="feedForm__Btn2">Download Backup</button>
-
-					<input type="file" id="backUpFile" name="feeds_backup" accept=".txt" className="feedForm__input--file" />
-					<label htmlFor="backUpFile">Restore Feeds</label>
-				</fieldset>
 			</form>
 		);
 	}
