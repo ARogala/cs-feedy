@@ -41,6 +41,11 @@ function FeedBtnList(props) {
 		for each feed category if the number of feeds is greater than 1
 		build the DOM
 	*/
+	//this function prevents error Don't make functions within a loop  no-loop-func
+	function addFeedId(feed) {
+		feed.id = feedId;
+		feedId = feedId + 1;
+	}
 	const dropDownUL = [];
 	for(let i = 0; i < allCategories.length; i++ ) {
 		if(groupedFeeds[allCategories[i]].length > 1) {
@@ -50,8 +55,7 @@ function FeedBtnList(props) {
 					<span>{allCategories[i]}:</span>
 					<ul aria-label="submenu" className="dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
-							feed.id = feedId;
-							feedId = feedId + 1;
+							addFeedId(feed);
 							return (
 								<li
 									onClick={() => handleClick(feed.url)}
