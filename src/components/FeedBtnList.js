@@ -96,7 +96,10 @@ function FeedBtnList(props) {
 			);
 		}
 	}
-
+	//console.log(allFeeds);
+	//set local storage equal to the modified allFeeds array
+	//this adds the Ids to the localStrorage allFeeds
+	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
 	return (
 		<ul className="feedBtnList">
 			{dropDownUL}
