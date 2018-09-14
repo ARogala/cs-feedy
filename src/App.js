@@ -9,6 +9,7 @@ import FeedBtnList from './components/FeedBtnList';
 import FeedOutput from './components/FeedOutput';
 import InputFeedForm from './components/InputFeedForm';
 import ManageFeeds from './components/ManageFeeds';
+import Navigation from './components/Navigation';
 
 //import styles
 import './App.css';
@@ -60,6 +61,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">CS Feedy</h1>
         </header>
+
+        <Navigation />
+
         <InputFeedForm
           allFeeds={this.state.allFeeds}
         />
