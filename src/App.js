@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RSSParser from 'rss-parser';
+import { Route } from 'react-router-dom';
 
 // import components
 import FeedBtnSearchBar from './components/FeedBtnSearchBar';
@@ -64,33 +65,47 @@ class App extends Component {
 
         <Navigation />
 
-        <InputFeedForm
-          allFeeds={this.state.allFeeds}
-        />
+        <Route path='/AddFeeds' render={() => (
+              <InputFeedForm
+                allFeeds={this.state.allFeeds}
+              />
+        )} />
 
-        <ManageFeeds
-          allFeeds={this.state.allFeeds}
-        />
 
-        <div className="searchBox">
-          <FeedBtnSearchBar />
-          <FeedBtnList
-            allFeeds={this.state.allFeeds}
-            handleClick={(feedURL) => {
-              this.setState({loading: true});
-              this.setState({error: null});
-              this.parseFeed(feedURL);
-            }}
-          />
-        </div>
+        <Route path='/ManageFeeds' render={() => (
+              <ManageFeeds
+                allFeeds={this.state.allFeeds}
+              />
+        )}/>
 
-        <main role="main" className="feedOutput">
-          <FeedOutput
-            feed={this.state.feed}
-            error={this.state.error}
-            loading={this.state.loading}
-          />
-        </main>
+
+        <Route exact path='/' render={() => (
+          <div>
+            <div className="searchBox">
+              <FeedBtnSearchBar />
+              <FeedBtnList
+                allFeeds={this.state.allFeeds}
+                handleClick={(feedURL) => {
+                  this.setState({loading: true});
+                  this.setState({error: null});
+                  this.parseFeed(feedURL);
+                }}
+              />
+            </div>
+
+            <main role="main" className="feedOutput">
+              <FeedOutput
+                feed={this.state.feed}
+                error={this.state.error}
+                loading={this.state.loading}
+              />
+            </main>
+          </div>
+        )}/>
+
+        <footer>
+          <h1>Contact Me Dr Hamster</h1>
+        </footer>
 
       </div>
     );
