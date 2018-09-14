@@ -11,7 +11,7 @@ function Navigation() {
 					<li><Link to='/AddFeeds'>Add Feeds</Link></li>
 					<li><Link to='/ManageFeeds'>Manage Feeds</Link></li>
 				</ul>
-				<li>About</li>
+				<li><Link to='/About'>About</Link></li>
 			</ul>
 		</nav>
 	);
