@@ -12,6 +12,7 @@ import InputFeedForm from './components/InputFeedForm';
 import ManageFeeds from './components/ManageFeeds';
 import Navigation from './components/Navigation';
 import About from './components/About';
+import Instructions from './components/Instructions';
 
 //import styles
 import './App.css';
@@ -70,6 +71,10 @@ class App extends Component {
           <About />
         )} />
 
+        <Route path='/Instructions' render={() => (
+          <Instructions />
+        )} />
+
         <Route path='/AddFeeds' render={() => (
               <InputFeedForm
                 allFeeds={this.state.allFeeds}
@@ -108,8 +113,8 @@ class App extends Component {
           </div>
         )}/>
 
-        <footer>
-          <h1>Contact Me Dr Hamster</h1>
+        <footer className="footer">
+          <h1>Footer</h1>
         </footer>
 
       </div>
