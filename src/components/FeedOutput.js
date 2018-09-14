@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //<img src={item['enclosure']['url']} height="200" width="200"/>
 
 function FeedOutput(props) {
-	console.log(props.feed);
+	//console.log(props.feed);
 	//console.log(props.error);
 	const feed = props.feed;
 	const feedItems = feed['entries'];

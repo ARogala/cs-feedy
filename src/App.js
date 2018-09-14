@@ -25,11 +25,14 @@ class App extends Component {
   }
 
   parseFeed(feedURL) {
-    // Note: some RSS feeds can't be loaded in the browser due to CORS security.
-    // To get around this, you can use a proxy.
-    // https://github.com/Rob--W/cors-anywhere
-    // run locally for development and host for production
+    /*
+      Note: some RSS feeds can't be loaded in the browser due to CORS security.
+      To get around this, you can use a proxy.
+      https://github.com/Rob--W/cors-anywhere
+      run locally for development and host for production
+    */
     const CORS_PROXY = 'http://localhost:8080/';
+    //const CORS_PROXY = 'https://mighty-beyond-75753.herokuapp.com/';
 
     RSSParser.parseURL(CORS_PROXY + feedURL, (err, parsed) => {
       //console.log(err);

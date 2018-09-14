@@ -1,5 +1,7 @@
 import React from 'react';
 
+import DeleteFeedBtnList from './DeleteFeedBtnList';
+
 function ManageFeeds(props) {
 	let allFeeds = props.allFeeds;
 	/*
@@ -55,32 +57,38 @@ function ManageFeeds(props) {
 
 
 	return (
-		<form className="manageFeedForm" id="manageFeedFormId">
-			<fieldset>
-				<legend>Back Up and Restore Your Feeds</legend>
-				<label htmlFor="backUpBtn">Click button below to backup your feeds</label>
-				<button
-					type="button"
-					id="backUpBtn"
-					download
-					className="manageFeedForm__Btn"
-					onClick={() => backUpFeeds()}
-					onKeyPress={() => backUpFeeds()}
-				>
-					Download Backup
-				</button>
+		<div>
+			<form className="manageFeedForm" id="manageFeedFormId">
+				<fieldset>
+					<legend>Back Up and Restore Your Feeds</legend>
+					<label htmlFor="backUpBtn">Click button below to backup your feeds</label>
+					<button
+						type="button"
+						id="backUpBtn"
+						download
+						className="manageFeedForm__Btn"
+						onClick={() => backUpFeeds()}
+						onKeyPress={() => backUpFeeds()}
+					>
+						Download Backup
+					</button>
 
-				<input
-					type="file"
-					id="backUpFile"
-					name="feeds_backup"
-					accept=".txt"
-					className="manageFeedForm__input--file"
-					onChange={(evt) => restoreFeeds(evt)}
-				/>
-				<label htmlFor="backUpFile">Restore Feeds</label>
-			</fieldset>
-		</form>
+					<input
+						type="file"
+						id="backUpFile"
+						name="feeds_backup"
+						accept=".txt"
+						className="manageFeedForm__input--file"
+						onChange={(evt) => restoreFeeds(evt)}
+					/>
+					<label htmlFor="backUpFile">Restore Feeds</label>
+				</fieldset>
+			</form>
+
+			<DeleteFeedBtnList
+				allFeeds={allFeeds}
+			/>
+		</div>
 	);
 }
 

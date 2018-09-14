@@ -41,7 +41,7 @@ function FeedBtnList(props) {
 		for each feed category if the number of feeds is greater than 1
 		build the DOM
 	*/
-	//this function prevents error Don't make functions within a loop  no-loop-func
+	//this function prevents the error Don't make functions within a loop  no-loop-func
 	function addFeedId(feed) {
 		feed.id = feedId;
 		feedId = feedId + 1;
