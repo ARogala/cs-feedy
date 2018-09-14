@@ -20,6 +20,7 @@ class App extends Component {
       feed: {},
       error: null,
       loading: null,
+      //pull allFeeds from localStorage or set as an empty array if storage is empty
       allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]')
     };
   }

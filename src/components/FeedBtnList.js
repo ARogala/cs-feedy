@@ -70,7 +70,7 @@ function FeedBtnList(props) {
 					role="button"
 					tabIndex="0"
 				>
-					{groupedFeeds[allCategories[i]][0].name + ' - ' + groupedFeeds[allCategories[i]][0].category}
+					{groupedFeeds[allCategories[i]][0].name}
 				</li>
 			);
 		}
