@@ -7,12 +7,27 @@ function DeleteFeedBtnList(props) {
 	const allFeeds = props.allFeeds;
 	console.log(allFeeds);
 
+	//delete a feed
+	function deleteSingleFeed(id) {
+		//loop through allFeeds array delete object with matching id
+		//set localStorage equal to the modified allFeeds array
+		for(let i = 0; i < allFeeds.length; i++) {
+			if(allFeeds[i].id === id) {
+				allFeeds.splice(i,1);
+			}
+		}
+		localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+	}
+
 	//groupedFeeds is an object with arrays of feeds for each category {category1:[{...}], category2:[{...}], ...}
 	const groupedFeeds = groupBy(allFeeds, 'category');
 	//console.log(groupedFeeds);
 	const allCategories = Object.keys(groupedFeeds);
 	//console.log(allCategories);
-
+	/*
+		for each feed category if the number of feeds is greater than 1
+		build the DOM
+	*/
 	const dropDownUL = [];
 	for(let i = 0; i < allCategories.length; i++ ) {
 		if(groupedFeeds[allCategories[i]].length > 1) {
@@ -24,14 +39,14 @@ function DeleteFeedBtnList(props) {
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
-									//onClick={() => handleClick(feed.url)}
-									//onKeyPress={() => handleClick(feed.url)}
+									onClick={() => deleteSingleFeed(feed.id)}
+									onKeyPress={() => deleteSingleFeed(feed.id)}
 									key={feed.id}
 									id={feed.id}
 									role="button"
 									tabIndex="0"
 								>
-									{feed.name + ' - ' + feed.category}
+									{feed.name}
 								</li>
 							);
 						})}
@@ -48,8 +63,8 @@ function DeleteFeedBtnList(props) {
 			singleFeed.push(
 				<li
 					className="singleFeed"
-					//onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
-					//onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
+					onClick={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
+					onKeyPress={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
@@ -62,9 +77,6 @@ function DeleteFeedBtnList(props) {
 	}
 
 	console.log(allFeeds);
-	//set local storage equal to the modified allFeeds array
-	//this adds the Ids to the localStrorage allFeeds
-	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
 	return (
 		<ul className="feedBtnList">
 			{dropDownUL}

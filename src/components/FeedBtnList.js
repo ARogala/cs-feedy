@@ -44,7 +44,7 @@ function FeedBtnList(props) {
 									role="button"
 									tabIndex="0"
 								>
-									{feed.name + ' - ' + feed.category}
+									{feed.name}
 								</li>
 							);
 						})}
@@ -75,7 +75,7 @@ function FeedBtnList(props) {
 			);
 		}
 	}
-	console.log(allFeeds);
+	//console.log(allFeeds);
 	//set local storage equal to the modified allFeeds array
 	//this adds the Ids to the localStrorage allFeeds
 	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
