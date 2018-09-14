@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+ .header {
+ 	text-align: center;
+ }
+
+ .footer {
+ 	position: fixed;
+ 	bottom: 0;
+ 	width: 100%;
+ 	background-color: #BDC4CF;
+ }
+
+ .footer__links-box {
+ 	padding: 5px;
+ }
+
+ .footer__link-logo {
+ 	padding: 2px;
+ }

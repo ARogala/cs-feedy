@@ -1,6 +1,5 @@
 // import dependencies
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import RSSParser from 'rss-parser';
 import { Route } from 'react-router-dom';
 
@@ -16,6 +15,10 @@ import Instructions from './components/Instructions';
 
 //import styles
 import './App.css';
+
+//import Icons
+import gitIcon from './img/github.png';
+import linkedinIcon from './img/linkedin.png';
 
 class App extends Component {
   constructor(props) {
@@ -61,8 +64,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">CS Feedy</h1>
+        <header className="header">
+          <h1 className="header__title">CSFeedy</h1>
+          <h2 className="header__tagline">Feed Reader</h2>
         </header>
 
         <Navigation />
@@ -87,7 +91,6 @@ class App extends Component {
                 allFeeds={this.state.allFeeds}
               />
         )}/>
-
 
         <Route exact path='/' render={() => (
           <div>
@@ -114,7 +117,11 @@ class App extends Component {
         )}/>
 
         <footer className="footer">
-          <h1>Footer</h1>
+          <div className="footer__links-box">
+            <p>Find me on:</p>
+            <a href="https://github.com/ARogala" target="_blank" rel="noopener"><img src={gitIcon} alt="GitHub" className="footer__link-logo"/></a>
+            <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener"><img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo"/></a>
+          </div>
         </footer>
 
       </div>
