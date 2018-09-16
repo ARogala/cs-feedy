@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+.nav__checkbox {
+	display: none;
+}
+
+.nav__button {
+	position: fixed;
+	width: 5rem;
+	height: 5rem;
+	top: 1rem;
+	right: 1rem;
+
+	background-color: #A8E8E5;
+	box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
+	border-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+
+}
+
+/*
+	span is an inline element by default so set to inline-block
+	in order to apply height and width. this builds the center bar
+	of the nav button.
+*/
+.nav__icon {
+	display: inline-block;
+	top: 2.4rem;
+	height: 3.5px;
+	width: 4rem;
+	background-color: black;
+	position: relative;
+}
+
+/*
+	build out the top and bottom bars of the nav button
+	by inserting blank content before and after the
+	center bar and setting height and width
+*/
+
+.nav__icon::before,
+.nav__icon::after {
+	content: '';
+	display: inline-block;
+	height: 3.5px;
+	width: 4rem;
+	background-color: black;
+	position: absolute;
+}
+
+/*position the top and botton bars*/
+
+.nav__icon::after {
+	top: -1rem;
+	right: 0;
+}
+
+.nav__icon::before {
+	top: 1rem;
+	right: 0;
+}
+
+/*
+	functionality: when the checkbox is checked
+	select every nav element that is before
+	the checkbox and set display to block
+*/
+
+.nav__checkbox:checked ~ .nav {
+	display: block;
+}
+
+
+
+.nav {
+	width: 150px;
+	text-align: center;
+	display: none;
+	/*position: fixed;*/
+}
+
+.nav__ul {
+	list-style: none;
+	background-color: #A8E8E5;
+}
+
+.nav__li {
+
+}
+
+.nav__li:hover {
+	/*cursor: pointer;*/
+}
+
+.nav__li-dropdown {
+	position: relative;
+}
+
+/*
+	focus-within selects an element if that element contains
+	any childen that have focus. In other words, it represents an element
+	that is itself matched by the :focus pseudo-class or has a descendant
+	that is matched by :focus
+
+	Thus, here I select the nav__dropdown ul and set the display to block
+	if the dropdown li is in the hover state,
+	focus state, or has childern in the focus state
+*/
+
+.nav__li-dropdown:focus-within .nav__dropdown,
+.nav__li-dropdown:hover .nav__dropdown {
+	display: block;
+}
+
+/*
+	set dropdown li to white when its state is hover, focus, or has childern in focus
+	Note: when you hover over a child element, you're also hovering over the parent
+	thus the parent will be white when you hover over its childern.
+*/
+.nav__li-dropdown:hover,
+.nav__li-dropdown:focus-within {
+	background-color: white;
+}
+
+/*
+	position the dropdown ul absolutly relative to nav__li-dropdown
+	set display to none
+*/
+.nav__dropdown {
+	list-style: none;
+	position: absolute;
+	width: 150px;
+	top: 0px;
+	left: 150px;
+	background-color: #A8E8E5;
+	display: none;
+}
+
+/*
+	Style all the nav links
+*/
+.nav__link {
+	text-decoration: none;
+	display: block;
+	height: 40px;
+	padding: 12px 10px 10px 10px;
+}
+
+.nav__link:hover {
+	background-color: white;
+}
+
+.nav__link:focus {
+	background-color: white;
+	outline: none;
+}
+
+.nav__link:visited {
+	color: black;
+}
+
+
+
