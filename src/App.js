@@ -40,7 +40,7 @@ class App extends Component {
       run locally for development and host for production
     */
     const CORS_PROXY = 'http://localhost:8080/';
-    //const CORS_PROXY = 'https://mighty-beyond-75753.herokuapp.com/';
+    // const CORS_PROXY = 'https://mighty-beyond-75753.herokuapp.com/';
 
     RSSParser.parseURL(CORS_PROXY + feedURL, (err, parsed) => {
       //console.log(err);

@@ -25,6 +25,10 @@
 
 }
 
+.nav__button:focus {
+	outline: 2px solid blue;
+}
+
 /*
 	span is an inline element by default so set to inline-block
 	in order to apply height and width. this builds the center bar
@@ -83,20 +87,12 @@
 	width: 150px;
 	text-align: center;
 	display: none;
-	/*position: fixed;*/
+	position: fixed;
 }
 
 .nav__ul {
 	list-style: none;
 	background-color: #A8E8E5;
-}
-
-.nav__li {
-
-}
-
-.nav__li:hover {
-	/*cursor: pointer;*/
 }
 
 .nav__li-dropdown {
@@ -151,6 +147,7 @@
 	display: block;
 	height: 40px;
 	padding: 12px 10px 10px 10px;
+	color: black;
 }
 
 .nav__link:hover {
