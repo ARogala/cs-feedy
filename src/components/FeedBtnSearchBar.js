@@ -2,13 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FeedBtnSearhBar() {
+import './FeedBtnSearchBar.css';
+
+function FeedBtnSearchBar() {
 	return (
 		<div className="searchBarContainer">
 			<h2>Your RSS/Atom Feeds</h2>
 			<label htmlFor="filterFeeds" className="feedsLabel">Filter Feeds:</label>
 			<input
 				type="text"
+				className="searchInput"
 				placeholder="Search your feeds..."
 			/>
 		</div>
@@ -16,4 +19,4 @@ function FeedBtnSearhBar() {
 	);
 }
 
-export default FeedBtnSearhBar;
+export default FeedBtnSearchBar;
