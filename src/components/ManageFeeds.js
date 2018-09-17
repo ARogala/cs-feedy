@@ -63,7 +63,7 @@ function ManageFeeds(props) {
 			<form className="manageFeedForm" id="manageFeedFormId">
 				<fieldset>
 					<legend>Back Up and Restore Your Feeds</legend>
-					<label htmlFor="backUpBtn">Click button below to backup your feeds</label>
+					<label htmlFor="backUpBtn">Click buttons below to backup and restore your feeds</label>
 					<button
 						type="button"
 						id="backUpBtn"
