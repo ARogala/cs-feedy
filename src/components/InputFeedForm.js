@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './InputFeedForm.css';
+
 class InputFeedForm extends React.Component {
 	constructor(props) {
 		super(props);
