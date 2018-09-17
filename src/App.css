@@ -10,9 +10,17 @@
  	text-align: center;
  }
 
+ .searchBox {
+ 	background-color: #BDC4CF;
+ 	margin: 10px auto 10px auto;
+ 	border-radius: 10px;
+ 	width: 90%;
+ }
+
  .footer {
  	position: fixed;
  	bottom: 0;
+ 	left: 0;
  	width: 100%;
  	height: 6.5rem;
  	background-color: #BDC4CF;
@@ -25,3 +33,9 @@
  .footer__link-logo {
  	padding: 2px;
  }
+
+@media screen and (min-width: 500px) {
+	.searchBox {
+		width: 400px;
+	}
+}

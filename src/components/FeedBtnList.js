@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 //import groupBy helper function
 import groupBy from './groupBy';
 
+import './FeedBtnList.css'
+
 function FeedBtnList(props) {
 	let feedId = 0;
 	const handleClick = props.handleClick;
@@ -37,6 +39,7 @@ function FeedBtnList(props) {
 							addFeedId(feed);
 							return (
 								<li
+									className="feedBtn"
 									onClick={() => handleClick(feed.url)}
 									onKeyPress={() => handleClick(feed.url)}
 									key={feed.id}
@@ -62,7 +65,7 @@ function FeedBtnList(props) {
 			feedId = feedId + 1;
 			singleFeed.push(
 				<li
-					className="singleFeed"
+					className="feedBtn"
 					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					key={groupedFeeds[allCategories[i]][0].id}
