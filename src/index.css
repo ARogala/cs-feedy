@@ -31,6 +31,23 @@ body {
 	margin-bottom: 7.5rem;
 }
 
+/*remove some default button styles*/
+button {
+	font-size: 100%;
+	font-family: inherit;
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+}
+
+/*remove default blue outline on click*/
+button:focus {
+	outline: none;
+}
+button:hover {
+	cursor: pointer;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
