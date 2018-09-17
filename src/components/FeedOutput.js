@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './FeedOutput.css'
 
 function FeedOutput(props) {
-	console.log(props.feed);
+	//console.log(props.feed);
 	//console.log(props.error);
 	const feed = props.feed;
 	const feedItems = feed['entries'];
@@ -35,7 +35,16 @@ function FeedOutput(props) {
 				<article key={index} className="feedArticle">
 					<h3><a href={item['link']} target="_blank" rel="noopener">{item['title']}</a></h3>
 					<time dateTime={item['pubDate']}>{item['pubDate']}</time>
-					<div dangerouslySetInnerHTML= {{__html: item['content']}}/>
+
+					{item['content:encoded']
+					? <div dangerouslySetInnerHTML= {{__html: item['content:encoded']}}/>
+					: <div dangerouslySetInnerHTML= {{__html: item['content']}}/>
+					}
+
+					{item['enclosure']
+					? <img src={item['enclosure']['url']} alt={item['title']} />
+					:''
+					}
 				</article>
 			);
 		});
