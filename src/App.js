@@ -12,6 +12,7 @@ import ManageFeeds from './components/ManageFeeds';
 import Navigation from './components/Navigation';
 import About from './components/About';
 import Instructions from './components/Instructions';
+import ScrollTopBtn from './components/ScrollTopBtn';
 
 //import styles
 import './App.css';
