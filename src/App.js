@@ -117,6 +117,8 @@ class App extends Component {
           </div>
         )}/>
 
+        <ScrollTopBtn />
+
         <footer className="footer">
           <div className="footer__links-box">
             <p>Find me on:</p>

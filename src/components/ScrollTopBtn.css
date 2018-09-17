@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+
+.scrollTop {
+	background-color: #A8E8E5;
+	border-radius: 20px;
+	padding: 5px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 10;
+	display: none;
+}
+
+.scrollTop:hover,
+.scrollTop:focus {
+	background-color: #BDC4CF;
+}
+
+.scrollTop:active {
+	transform: translateY(3px);
+}
