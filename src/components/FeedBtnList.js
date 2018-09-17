@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 //import groupBy helper function
 import groupBy from './groupBy';
 
-import './FeedBtnList.css'
+import './FeedBtnList.css';
 
 function FeedBtnList(props) {
 	let feedId = 0;

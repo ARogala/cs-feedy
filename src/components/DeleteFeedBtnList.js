@@ -3,6 +3,10 @@ import React from 'react';
 //import groupBy helper function
 import groupBy from './groupBy';
 
+//borrow styles from FeedBtnList the two components
+//share the same structure
+import './FeedBtnList.css';
+
 class DeleteFeedBtnList extends React.Component {
 	constructor(props) {
 		super(props);
@@ -47,6 +51,7 @@ class DeleteFeedBtnList extends React.Component {
 							{groupedFeeds[allCategories[i]].map((feed) => {
 								return (
 									<li
+										className="feedBtn"
 										onClick={() => this.deleteSingleFeed(feed.id)}
 										onKeyPress={() => this.deleteSingleFeed(feed.id)}
 										key={feed.id}
@@ -70,7 +75,7 @@ class DeleteFeedBtnList extends React.Component {
 			if(groupedFeeds[allCategories[i]].length === 1) {
 				singleFeed.push(
 					<li
-						className="singleFeed"
+						className="feedBtn"
 						onClick={() => this.deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 						onKeyPress={() => this.deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 						key={groupedFeeds[allCategories[i]][0].id}
@@ -85,7 +90,7 @@ class DeleteFeedBtnList extends React.Component {
 		}
 
 		return (
-			<div>
+			<div className="searchBox">
 	 			<h1>Delete Feeds</h1>
 	 			<ul className="feedBtnList">
 	 				{dropDownUL}
