@@ -6,6 +6,31 @@
  * @version 1.0
  */
 
+.errorTitle {
+	text-align: center;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+	font-size: 2rem;
+}
+
+.errorText {
+	margin: 0px 10px 0px 10px;
+	font-size: 2rem;
+}
+
+.loading {
+	text-align: center;
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.hint {
+	text-align: center;
+	font-size: 2rem;
+	margin: 0px 10px 0px 10px;
+}
+
+
 .rssOutput {
 	width: 90vw;
  	margin: 0px auto 0px auto;

@@ -13,20 +13,20 @@ function FeedOutput(props) {
 	if(props.error !== null) {
 		return (
 			<div>
-				<h1>Sorry the program had an error try a different feed</h1>
-				<p>Make sure you typed in the correct feed url.
+				<p className="errorTitle">Sorry CSFeedy experienced an error</p>
+				<p className="errorText">Make sure you typed in the correct feed url.
 				If you are sure you typed in the correct feed url
 				and you are still experiencing errors know that
 				CSFeedy may not work with every feed. (CSFeedy
 				can not parse feeds that return HTML) It is also
-				possible that the CORS proxy is down or CSFeedy has
-				exceded the number of free redirect requests</p>
+				possible that the CORS proxy server is down or CSFeedy has
+				exceeded the amount of free up time on the proxy server</p>
 			</div>
 		);
 	}
 	if(props.loading) {
 		return (
-			<h1>LOADING......</h1>
+			<p className="loading">LOADING......</p>
 		);
 	}
 	if(Object.keys(feed).length !== 0) {
@@ -60,7 +60,8 @@ function FeedOutput(props) {
 	}
 	else if(Object.keys(feed).length === 0) {
 		return (
-			<h1>Click a feed button</h1>
+			<p className="hint">Click a feed button above or input some feeds in
+			the settings page.</p>
 		);
 	}
 }
