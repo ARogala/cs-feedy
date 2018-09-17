@@ -2,6 +2,8 @@ import React from 'react';
 
 import DeleteFeedBtnList from './DeleteFeedBtnList';
 
+import './ManageFeeds.css';
+
 function ManageFeeds(props) {
 	let allFeeds = props.allFeeds;
 	/*
