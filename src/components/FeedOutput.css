@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+.rssOutput {
+	width: 90vw;
+ 	margin: 0px auto 0px auto;
+ 	word-wrap: break-word;
+}
+
+.feedArticle img {
+	height: auto;
+	max-width: 100%;
+}
+
+.feedArticle iframe {
+	height: auto;
+	max-width: 100%;
+}
