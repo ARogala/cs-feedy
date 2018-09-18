@@ -41,3 +41,9 @@
 .feedBtn:focus {
 	outline: 2px solid blue;
 }
+
+
+.deleteHint {
+	text-align: center;
+	padding: 5px;
+}

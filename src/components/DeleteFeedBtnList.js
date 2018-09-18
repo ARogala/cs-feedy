@@ -91,7 +91,7 @@ class DeleteFeedBtnList extends React.Component {
 
 		return (
 			<div className="searchBox">
-	 			<span>Click a Feed to Delete</span>
+	 			<p className="deleteHint">Click a Feed to Delete</p>
 	 			<ul className="feedBtnList">
 	 				{dropDownUL}
 	 				<span>Single Feeds:</span>
