@@ -6,17 +6,27 @@
  * @version 1.0
  */
 
-.searchBarContainer h2 {
+.searchBarContainer p {
+	font-size: 2rem;
+	font-weight: bold;
 	padding-top: 5px;
 	text-align: center;
 }
 
 .feedsLabel {
 	display: block;
-	padding: 5px 5px 5px 10px;
+	padding: 5px 5px 5px 12px;
 }
 
 .searchInput {
 	width: 90%;
 	margin: 0px 0px 10px 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 3px;
+	outline: none;
+}
+
+.searchInput:focus {
+	background-color: lightyellow;
 }

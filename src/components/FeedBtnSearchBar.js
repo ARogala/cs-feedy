@@ -7,7 +7,7 @@ import './FeedBtnSearchBar.css';
 function FeedBtnSearchBar() {
 	return (
 		<div className="searchBarContainer">
-			<h2>Your RSS/Atom Feeds</h2>
+			<p>Your RSS/Atom Feeds</p>
 			<label htmlFor="filterFeeds" className="feedsLabel">Filter Feeds:</label>
 			<input
 				type="text"
