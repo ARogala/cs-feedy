@@ -30,24 +30,58 @@
 	margin: 0px 10px 0px 10px;
 }
 
-
-.rssOutput {
+.feedOutput {
 	width: 90vw;
  	margin: 0px auto 0px auto;
- 	word-wrap: break-word;
 }
 
-.feedArticle img {
+.feedOutput h2 {
+	text-align: center
+}
+
+.feedOutput h3 {
+	text-align: center
+}
+
+.feedOutput time {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/*center all block elements*/
+.feedOutput * {
+	margin: 0 auto 0 auto;
+}
+
+.feedArticle {
+	margin-bottom: 20px;
+}
+
+.feedArticle div {
+	max-width: 90vw;
+}
+
+.feedArticle p {
+	max-width: 90vw;
+	word-wrap: break-word;
+}
+
+.feedArticle  img {
+	display: block;
 	height: auto;
-	max-width: 100%;
+	max-width: 90vw;
+	float: none;
 }
 
 .feedArticle iframe {
 	height: auto;
-	max-width: 100%;
+	max-width: 90vw;
 }
 
 .feedArticle figure {
 	height: auto;
-	max-width: 100%;
+	max-width: 90vw;
 }
+
+

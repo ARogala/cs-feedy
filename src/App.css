@@ -18,14 +18,14 @@
  	background-color: #BDC4CF;
  	margin: 10px auto 10px auto;
  	border-radius: 10px;
- 	width: 90%;
+ 	width: 90vw;
  }
 
  .footer {
  	position: fixed;
  	bottom: 0;
  	left: 0;
- 	width: 100%;
+ 	width: 100vw;
  	height: 6.5rem;
  	background-color: #BDC4CF;
  }
