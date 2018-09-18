@@ -29,7 +29,8 @@ class App extends Component {
       error: null,
       loading: null,
       //pull allFeeds from localStorage or set as an empty array if storage is empty
-      allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]')
+      allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]'),
+      filterText: ''
     };
   }
 
@@ -60,6 +61,10 @@ class App extends Component {
 
     });
 
+  }
+
+  handleFilterTextChange(filterText) {
+    this.setState({filterText: filterText});
   }
 
   render() {
@@ -96,7 +101,11 @@ class App extends Component {
         <Route exact path='/' render={() => (
           <div>
             <div className="searchBox">
-              <FeedBtnSearchBar />
+              <FeedBtnSearchBar
+                filterText={this.state.filterText}
+                handleFilterTextChange={(filterText) =>
+                  this.handleFilterTextChange(filterText)}
+              />
               <FeedBtnList
                 allFeeds={this.state.allFeeds}
                 handleClick={(feedURL) => {
@@ -104,6 +113,7 @@ class App extends Component {
                   this.setState({error: null});
                   this.parseFeed(feedURL);
                 }}
+                filterText={this.state.filterText}
               />
             </div>
 
