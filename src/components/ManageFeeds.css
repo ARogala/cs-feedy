@@ -19,12 +19,15 @@
 	padding: 2px;
 }
 
+.MngFeedBtnContainer {
+	text-align: center;
+}
+
 .manageFeedForm__Btn {
 	background-color: #A8E8E5;
 	border-radius: 20px;
 	padding: 5px;
-	margin: 10px 0px 15px 0px;
-	display: block;
+	margin: 10px 10px 0px 0px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -50,6 +53,7 @@
 	background-color: #A8E8E5;
 	cursor: pointer;
 	padding: 5px;
+	margin-left: 10px;
 	border-radius: 20px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

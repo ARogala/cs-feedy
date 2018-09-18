@@ -65,26 +65,29 @@ function ManageFeeds(props) {
 				<fieldset>
 					<legend>Back Up and Restore Your Feeds</legend>
 					<label htmlFor="backUpBtn">Click buttons below to backup and restore your feeds</label>
-					<button
-						type="button"
-						id="backUpBtn"
-						download
-						className="manageFeedForm__Btn"
-						onClick={() => backUpFeeds()}
-						onKeyPress={() => backUpFeeds()}
-					>
-						Download Backup
-					</button>
+					<div className="MngFeedBtnContainer">
+						<button
+							type="button"
+							id="backUpBtn"
+							download
+							className="manageFeedForm__Btn"
+							onClick={() => backUpFeeds()}
+							onKeyPress={() => backUpFeeds()}
+						>
+							Download Backup
+						</button>
 
-					<input
-						type="file"
-						id="backUpFile"
-						name="feeds_backup"
-						accept=".txt"
-						className="manageFeedForm__input--file"
-						onChange={(evt) => restoreFeeds(evt)}
-					/>
-					<label htmlFor="backUpFile">Restore Feeds</label>
+						<input
+							type="file"
+							id="backUpFile"
+							name="feeds_backup"
+							accept=".txt"
+							className="manageFeedForm__input--file"
+							onChange={(evt) => restoreFeeds(evt)}
+						/>
+
+						<label htmlFor="backUpFile">Restore Feeds</label>
+					</div>
 				</fieldset>
 			</form>
 
