@@ -48,8 +48,9 @@ function ManageFeeds(props) {
 		    reader.onload = function(event) {
 		    	allFeeds = JSON.parse(event.target.result);
 		    	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-		    	// reset the form
-		    	document.getElementById('manageFeedFormId').reset();
+		    	//relod window to restore feeds in delete list
+		    	window.location.reload(true);
+		    	alert('Feeds sucessfully restored');
 			}
 	    }
 	    else {
