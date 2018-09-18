@@ -2,6 +2,8 @@ import React from 'react';
 
 import './Instructions.css';
 
+import download from '../CSFeedyBackUp.txt';
+
 function Instructions() {
 	return (
 		<div className="instructionsContainer">
@@ -31,7 +33,9 @@ function Instructions() {
 			<p>To backup and restore your feeds, navigate to the Manage Feeds page
 			and click the Download Backup or Restore Feeds button.
 			When restoring your feeds, you must upload the same file you downloaded
-			as a backup.</p><br/>
+			as a backup. You can also download a feeds starter pack <a href={download} download="CSFeedyBackUp.txt">here</a> to get a feel for this application
+			before you search the net for feeds.</p><br/>
+
 			<p>Please note your feeds will be deleted from memory when you
 			clear your browser's cookies and other site data,
 			so be sure to backup your feed list before clearing your browser’s data.
@@ -43,7 +47,6 @@ function Instructions() {
 			like to delete. The list of feeds is directly below the back up
 			and restore section.</p>
 			<p>(Menu => Settings => Manage Feeds)</p>
-
 		</div>
 	);
 }
