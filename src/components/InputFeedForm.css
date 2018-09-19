@@ -51,3 +51,10 @@
 .feedForm__Btn1:active {
 	transform: translateY(3px);
 }
+
+@media screen and (min-width: 500px) {
+	.feedForm {
+		max-width: 500px;
+		margin: auto;
+	}
+}
