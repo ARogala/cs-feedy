@@ -165,3 +165,35 @@
 
 
 
+@media screen and (min-width: 1000px) {
+	.nav__button {
+		right: 20rem;
+	}
+	.nav {
+		width: 300px;
+	}
+	.nav__dropdown {
+		width: 300px;
+		left: 300px;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.nav__button {
+		right: 30rem;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.nav__button {
+		right: 37rem;
+	}
+	.nav {
+		width: 400px;
+	}
+	.nav__dropdown {
+		width: 400px;
+		left: 400px;
+	}
+}
+
