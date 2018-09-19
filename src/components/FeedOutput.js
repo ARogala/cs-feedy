@@ -25,7 +25,7 @@ function FeedOutput(props) {
 	}
 	if(props.loading) {
 		return (
-			<p className="loading">LOADING......</p>
+			<div className="loading"></div>
 		);
 	}
 	/*
