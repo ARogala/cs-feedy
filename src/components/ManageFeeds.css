@@ -62,3 +62,10 @@
 .manageFeedForm__input--file:hover + label {
 	background-color: #BDC4CF;
 }
+
+@media screen and (min-width: 500px) {
+	.manageFeedForm {
+		max-width: 500px;
+		margin: auto;
+	}
+}
