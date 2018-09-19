@@ -2,12 +2,58 @@ import React from 'react';
 
 import './Instructions.css';
 
-import download from '../CSFeedyBackUp.txt';
-
 function Instructions() {
+	/*
+		Firefox mobile wouldnt play nice with the anchor tag download attribute
+		so here is a quick way to download some starter feeds as a text file
+		without having to fetch from the server. Fetching from the server
+		seemed a little too complicated to set up for the simple goal I had
+		in mind.
+		see ManageFeeds.js for an explination on this function
+	*/
+	function starterPackDL() {
+		const starterFeeds = [{"name":"Contemporary Math","category":"Math","url":"http://www.ams.org/rss/conm.rss","id":0},
+		{"name":"The Math Blog","category":"Math","url":"http://math-blog.com/feed/","id":1},
+		{"name":"News","category":"Reddit","url":"https://www.reddit.com/r/worldnews/.rss","id":2},
+		{"name":"BuzzFeed","category":"News","url":"https://www.buzzfeed.com/world.xml","id":4},
+		{"name":"Yahoo","category":"News","url":"https://www.yahoo.com/news/world/rss","id":5},
+		{"name":"RT News","category":"News","url":"https://www.rt.com/rss/news","id":6},
+		{"name":"Independent","category":"News","url":"http://www.independent.co.uk/news/world/rss","id":7},
+		{"name":"BBC","category":"News","url":"http://feeds.bbci.co.uk/news/world/rss.xml","id":8},
+		{"name":"New York Times","category":"News","url":"https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml","id":9},
+		{"name":"Shutterbug","category":"Photography","url":"https://www.shutterbug.com/taxonomy/term/730/all/feed","id":10},
+		{"name":"Visual Wilderness ","category":"Photography","url":"https://visualwilderness.com/feed","id":11},
+		{"name":"History Today","category":"History","url":"https://www.historytoday.com/feed/rss.xml","id":14},
+		{"name":"Loaded Landscapes","category":"Photography","url":"http://loadedlandscapes.com/feed","id":12},
+		{"name":"YouTube Space","category":"Space","url":"https://www.youtube.com/feeds/videos.xml?user=ouramazingspace","id":15},
+		{"name":"Space","category":"Reddit","url":"https://www.reddit.com/r/space/.rss","id":3},
+		{"name":"Earth Sky","category":"Photography","url":"http://earthsky.org/space/feed","id":13},
+		{"name":"NASA Image of the Day","category":"Science","url":"http://www.nasa.gov/rss/dyn/image_of_the_day.rss","id":16}];
+
+		const backUpFileText = JSON.stringify(starterFeeds);
+		const backUpFileTextAsBlob = new Blob([backUpFileText], {type:"text/plain"});
+		const backUpFileAsURL = window.URL.createObjectURL(backUpFileTextAsBlob);
+		const fileName = 'CSFeedyBackUp.txt';
+
+		const downloadElement = document.createElement('a');
+		downloadElement.setAttribute('href', backUpFileAsURL);
+		downloadElement.setAttribute('download', fileName);
+
+		downloadElement.style.display = 'none';
+		document.body.appendChild(downloadElement);
+
+		downloadElement.click();
+
+		document.body.removeChild(downloadElement);
+		//free up memory by revoking the url after we finish
+		window.URL.revokeObjectURL(backUpFileTextAsBlob);
+
+	}
+
 	return (
 		<div className="instructionsContainer">
-			<h3>Home Page</h3>
+			<h3>Instructions</h3>
+			<h4>Home Page</h4>
 			<p>On the Home page you can filter/search through your
 			feeds list by typing a search term in the search bar provided.
 			This search feature only searches for feeds within your feeds list.
@@ -18,7 +64,7 @@ function Instructions() {
 			The feed buttons are located in a categorized list directly
 			below the search bar.</p><br/>
 
-			<h3>Add Feeds</h3>
+			<h4>Add Feeds</h4>
 			<p>In order to input feeds into the program’s memory,
 			navigate to the Add Feeds page and enter the feed name,
 			feed category, and feed URL into the input fields provided.
@@ -29,11 +75,11 @@ function Instructions() {
 			I usually just copy and paste the feed URLs.</p>
 			<p>(Menu => Settings => Add Feeds)</p><br/>
 
-			<h3>Manage Feeds</h3>
+			<h4>Manage Feeds</h4>
 			<p>To backup and restore your feeds, navigate to the Manage Feeds page
 			and click the Download Backup or Restore Feeds button.
 			When restoring your feeds, you must upload the same file you downloaded
-			as a backup. You can also download a feeds starter pack <a href={download} download="CSFeedyBackUp.txt">here</a> to get a feel for this application
+			as a backup. You can also download a feeds starter pack <button id="starterPackDL" onClick={() => starterPackDL()}>here</button> to get a feel for this application
 			before you search the net for feeds.</p><br/>
 
 			<p>Please note your feeds will be deleted from memory when you

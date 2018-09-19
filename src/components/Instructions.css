@@ -11,8 +11,28 @@
 	margin: 0px auto 0px auto;
 	font-size: 1.75rem;
 	padding: 15px;
+	line-height: 2.5rem;
 }
 
 .instructionsContainer h3 {
 	text-align: center;
+}
+
+#starterPackDL {
+	background-color: #A8E8E5;
+	border-radius: 20px;
+	padding: 4px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#starterPackDL:hover,
+#starterPackDL:focus {
+	background-color: #BDC4CF;
+}
+
+#starterPackDL:active {
+	transform: translateY(3px);
+}
+
+#starterPackDL:focus {
+	outline: 2px solid blue;
 }
