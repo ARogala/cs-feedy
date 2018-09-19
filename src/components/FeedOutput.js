@@ -1,7 +1,6 @@
 // import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-//<img src={item['enclosure']['url']} height="200" width="200"/>
 
 import './FeedOutput.css'
 
@@ -29,6 +28,19 @@ function FeedOutput(props) {
 			<p className="loading">LOADING......</p>
 		);
 	}
+	/*
+		enclosures contain images so if there is an enclosure display
+		only the contentSnippet and enclosure image
+		this prevents double loading of images contained in
+		the content or content:encoded
+
+		if content:encoded and no enclosure display only content:encoded
+
+		if content and no enclosure and no content:encoded display only content
+
+		this was all found by viewing various feeds. NO magic just trial
+		and error
+	*/
 	if(Object.keys(feed).length !== 0) {
 		const feedContent = feedItems.map((item, index) => {
 			return (
@@ -36,15 +48,21 @@ function FeedOutput(props) {
 					<h3><a href={item['link']} target="_blank" rel="noopener">{item['title']}</a></h3>
 					<time dateTime={item['pubDate']}>{item['pubDate']}</time>
 
-					{item['content:encoded']
-					? <div dangerouslySetInnerHTML= {{__html: item['content:encoded']}}/>
-					: <div dangerouslySetInnerHTML= {{__html: item['content']}}/>
+					{item['enclosure'] &&
+						<div>
+							<div dangerouslySetInnerHTML= {{__html: item['contentSnippet']}}/>
+							<img src={item['enclosure']['url']} alt={item['title']} />
+						</div>
 					}
 
-					{item['enclosure']
-					? <img src={item['enclosure']['url']} alt={item['title']} />
-					:''
+					{(item['content:encoded'] && !item['enclosure']) &&
+						<div dangerouslySetInnerHTML= {{__html: item['content:encoded']}}/>
 					}
+
+					{(item['content'] && !item['enclosure'] && !item['content:encoded']) &&
+						<div dangerouslySetInnerHTML= {{__html: item['content']}}/>
+					}
+
 				</article>
 			);
 		});
