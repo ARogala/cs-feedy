@@ -20,7 +20,7 @@
 /*loading spinner*/
 
 .loading {
-	border: 10px solid lightgrey;
+	border: 10px solid #BDC4CF;
 	border-top: 10px solid #A8E8E5;
 	border-radius: 50%;
 	width: 100px;
@@ -95,3 +95,28 @@
 }
 
 
+@media screen and (min-width: 1000px) {
+	.feedOutput {
+		width: 50vw;
+	}
+
+	.feedArticle div {
+		max-width: 50vw;
+	}
+
+	.feedArticle p {
+		max-width: 50vw;
+	}
+
+	.feedArticle  img {
+		max-width: 50vw;
+	}
+
+	.feedArticle iframe {
+		max-width: 50vw;
+	}
+
+	.feedArticle figure {
+		max-width: 50vw;
+	}
+}
