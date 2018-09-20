@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+.about {
+	max-width: 70rem;
+	margin: 0px auto 0px auto;
+	font-size: 1.75rem;
+	padding: 15px;
+	line-height: 2.5rem;
+	display: block;
+}
