@@ -11,10 +11,13 @@ Built with create-react-app https://github.com/facebook/create-react-app
 
 ## Instructions
 
-To install a development version fork this code. And run
+To install a development version fork or clone this code. And run
 
 npm install
 npm start
+
+Also need to clone and run a local version of CORS Anywhere
+see dependencies
 
 Check out the app: https://csfeedy.surge.sh
 
