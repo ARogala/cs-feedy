@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import focusWithin from 'focus-within';
 
-import './navigation.css'
+import './navigation.css';
+
+focusWithin(document);
 
 function hideNav() {
 	document.getElementById('navi-toggle').checked = false;

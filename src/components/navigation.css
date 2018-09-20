@@ -108,9 +108,20 @@
 	Thus, here I select the nav__dropdown ul and set the display to block
 	if the dropdown li is in the hover state,
 	focus state, or has childern in the focus state
+
+	IE and Edge dont support focus-within need to find a fix
+	https://www.npmjs.com/package/focus-within
+	fixes the problem
 */
 
-.nav__li-dropdown:focus-within .nav__dropdown,
+.nav__li-dropdown:focus-within .nav__dropdown {
+	display: block;
+}
+
+.nav__li-dropdown[focus-within] .nav__dropdown {
+	display: block;
+}
+
 .nav__li-dropdown:hover .nav__dropdown {
 	display: block;
 }
@@ -120,8 +131,16 @@
 	Note: when you hover over a child element, you're also hovering over the parent
 	thus the parent will be white when you hover over its childern.
 */
-.nav__li-dropdown:hover,
+
+.nav__li-dropdown:hover {
+	background-color: white;
+}
+
 .nav__li-dropdown:focus-within {
+	background-color: white;
+}
+
+.nav__li-dropdown[focus-within] {
 	background-color: white;
 }
 

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
+    "focus-within": "^2.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
