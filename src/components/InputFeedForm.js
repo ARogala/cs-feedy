@@ -27,9 +27,6 @@ class InputFeedForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log(this.state.feedName);
-		console.log(this.state.feedCategory);
-		console.log(this.state.feedURL);
 		this.saveData(this.state.feedName, this.state.feedCategory, this.state.feedURL)
 	}
 

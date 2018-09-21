@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sortBy from 'sort-by';
 
 //import groupBy helper function
 import groupBy from './groupBy';
@@ -31,6 +32,7 @@ class DeleteFeedBtnList extends React.Component {
 
 	render() {
 		const allFeeds = this.state.allFeeds;
+		allFeeds.sort(sortBy('category'));
 		//groupedFeeds is an object with arrays of feeds for each category {category1:[{...}], category2:[{...}], ...}
 		const groupedFeeds = groupBy(allFeeds, 'category');
 		//console.log(groupedFeeds);
