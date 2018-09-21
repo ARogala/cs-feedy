@@ -62,8 +62,9 @@ function About() {
 			(Create Read/Retrieve Update and Delete). I hope to add functionality to update a feed in the future.
 			I would also like to include functionality that allows more than one feed list.
 			Thus, users can switch between a few feed lists instead of having one huge list.
-			Accessibility needs some improvement as well. I may try to support Edge and Internet Explorer;
-			but for now the app only works in Google Chrome, Firefox, and Opera on both desktop and mobile.
+			Accessibility needs some improvement as well.
+			This app works in Google Chrome, Firefox, Microsoft Edge, and Opera.
+			Mobile support for Android Chrome, Firefox, and Opera.
 			Check out the code for this application on my <a href="https://github.com/ARogala/cs-feedy">GitHub</a> page.</p>
 			<p>Hope you enjoy CSFeedy!</p>
 
