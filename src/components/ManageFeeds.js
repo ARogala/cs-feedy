@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DeleteFeedBtnList from './DeleteFeedBtnList';
 
 import './ManageFeeds.css';
 
@@ -91,10 +90,6 @@ function ManageFeeds(props) {
 					</div>
 				</fieldset>
 			</form>
-
-			<DeleteFeedBtnList
-				allFeeds={allFeeds}
-			/>
 		</div>
 	);
 }
