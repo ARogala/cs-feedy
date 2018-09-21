@@ -81,10 +81,19 @@ function Navigation() {
 							<li>
 								<Link
 									className="nav__link"
+									to='#'
+									onClick={() => hideNav()}
+								>
+									Delete Feeds
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav__link"
 									to='/ManageFeeds'
 									onClick={() => hideNav()}
 								>
-									Manage Feeds
+									BackUp and Restore
 								</Link>
 							</li>
 						</ul>
