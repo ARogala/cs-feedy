@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import './ManageFeeds.css';
+import './BackupRestoreFeeds.css';
 
-function ManageFeeds(props) {
+function BackupRestoreFeeds(props) {
 	let allFeeds = props.allFeeds;
 	/*
 		store the text to backup as a string in the backUpFileText variable
@@ -63,7 +63,7 @@ function ManageFeeds(props) {
 		<div>
 			<form className="manageFeedForm" id="manageFeedFormId">
 				<fieldset>
-					<legend>Back Up and Restore Your Feeds</legend>
+					<legend>Backup and Restore Your Feeds</legend>
 					<label htmlFor="backUpBtn">Click buttons below to backup and restore your feeds</label>
 					<div className="MngFeedBtnContainer">
 						<button
@@ -94,8 +94,8 @@ function ManageFeeds(props) {
 	);
 }
 
-export default ManageFeeds;
+export default BackupRestoreFeeds;
 
-ManageFeeds.propTypes = {
+BackupRestoreFeeds.propTypes = {
 	allFeeds: PropTypes.array.isRequired
 }

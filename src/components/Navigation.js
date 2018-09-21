@@ -90,7 +90,7 @@ function Navigation() {
 							<li>
 								<Link
 									className="nav__link"
-									to='/ManageFeeds'
+									to='/BackupRestoreFeeds'
 									onClick={() => hideNav()}
 								>
 									Backup and Restore

@@ -8,7 +8,7 @@ import FeedBtnSearchBar from './components/FeedBtnSearchBar';
 import FeedBtnList from './components/FeedBtnList';
 import FeedOutput from './components/FeedOutput';
 import InputFeedForm from './components/InputFeedForm';
-import ManageFeeds from './components/ManageFeeds';
+import BackupRestoreFeeds from './components/BackupRestoreFeeds';
 import Navigation from './components/Navigation';
 import About from './components/About';
 import Instructions from './components/Instructions';
@@ -99,8 +99,8 @@ class App extends Component {
 
         )} />
 
-        <Route path='/ManageFeeds' render={() => (
-              <ManageFeeds
+        <Route path='/BackupRestoreFeeds' render={() => (
+              <BackupRestoreFeeds
                 allFeeds={this.state.allFeeds}
               />
         )}/>
