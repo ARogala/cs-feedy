@@ -29,5 +29,4 @@ export default FeedBtnSearchBar;
 FeedBtnSearchBar.propTypes = {
   filterText: PropTypes.string.isRequired,
   handleFilterTextChange: PropTypes.func.isRequired
-
 }

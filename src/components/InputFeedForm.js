@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './InputFeedForm.css';
 
@@ -124,3 +125,7 @@ class InputFeedForm extends React.Component {
 }
 
 export default InputFeedForm;
+
+InputFeedForm.propTypes = {
+	allFeeds: PropTypes.array.isRequired
+}

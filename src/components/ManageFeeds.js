@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import DeleteFeedBtnList from './DeleteFeedBtnList';
 
@@ -99,3 +100,7 @@ function ManageFeeds(props) {
 }
 
 export default ManageFeeds;
+
+ManageFeeds.propTypes = {
+	allFeeds: PropTypes.array.isRequired
+}

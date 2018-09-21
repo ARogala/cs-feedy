@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //import groupBy helper function
 import groupBy from './groupBy';
@@ -103,3 +104,7 @@ class DeleteFeedBtnList extends React.Component {
 }
 
 export default DeleteFeedBtnList;
+
+DeleteFeedBtnList.propTypes = {
+	allFeeds: PropTypes.array.isRequired
+}
