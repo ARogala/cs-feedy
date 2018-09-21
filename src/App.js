@@ -13,6 +13,7 @@ import Navigation from './components/Navigation';
 import About from './components/About';
 import Instructions from './components/Instructions';
 import ScrollTopBtn from './components/ScrollTopBtn';
+import DeleteFeedBtnList from './components/DeleteFeedBtnList';
 
 //import styles
 import './App.css';
@@ -91,6 +92,12 @@ class App extends Component {
               />
         )} />
 
+        <Route path='/DeleteFeeds' render={() => (
+              <DeleteFeedBtnList
+                allFeeds={this.state.allFeeds}
+              />
+
+        )} />
 
         <Route path='/ManageFeeds' render={() => (
               <ManageFeeds
