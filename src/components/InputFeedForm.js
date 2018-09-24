@@ -27,7 +27,8 @@ class InputFeedForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.saveData(this.state.feedName, this.state.feedCategory, this.state.feedURL)
+		this.props.saveData(this.state.feedName, this.state.feedCategory, this.state.feedURL);
+		this.resetForm();
 	}
 
 	resetForm() {
@@ -36,23 +37,6 @@ class InputFeedForm extends React.Component {
 			feedCategory: '',
 			feedURL: ''
 		});
-	}
-
-	saveData(feedName, feedCategory, feedURL) {
-		let allFeeds = this.props.allFeeds;
-		//push a new empty object on the all feeds array
-		allFeeds.push({});
-
-		const newFeedIndex = allFeeds.length - 1;
-		//add new feed data to obj in feeds array
-		allFeeds[newFeedIndex].name = feedName;
-		allFeeds[newFeedIndex].category = feedCategory;
-		allFeeds[newFeedIndex].url = feedURL;
-		//save new feed array locally
-		localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-	    this.resetForm();
-	    alert('Feed added successfully!');
-
 	}
 
 	render() {
@@ -124,5 +108,5 @@ class InputFeedForm extends React.Component {
 export default InputFeedForm;
 
 InputFeedForm.propTypes = {
-	allFeeds: PropTypes.array.isRequired
+	saveData: PropTypes.func.isRequired
 }
