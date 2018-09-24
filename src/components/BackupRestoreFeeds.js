@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 import './BackupRestoreFeeds.css';
 
 function BackupRestoreFeeds(props) {
-	let allFeeds = props.allFeeds;
+	const restoreFeeds   = props.restoreFeeds;
 	/*
 		store the text to backup as a string in the backUpFileText variable
 		convert the sting to a blob which is raw data that represents our text
@@ -35,29 +34,6 @@ function BackupRestoreFeeds(props) {
 		//free up memory by revoking the url after we finish
 		window.URL.revokeObjectURL(backUpFileTextAsBlob);
 	}
-	//get the file from the user and use readAsText to read the txt doc
-	//parse into allFeeds and save allFeeds back to localStorage
-	function restoreFeeds(evt) {
-	    let files = evt.target.files; // FileList object
-	    if(files[0].name === 'CSFeedyBackUp.txt') { //ensure proper file is uploaded
-		    let file = files[0];
-		    let reader = new FileReader();
-		    //readAsText is asynchronous, so need to use the onload callback
-		    //to see the result
-		    reader.readAsText(file);
-		    reader.onload = function(event) {
-		    	allFeeds = JSON.parse(event.target.result);
-		    	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-		    	//relod window to restore feeds in delete list
-		    	window.location.reload(true);
-		    	alert('Feeds sucessfully restored');
-			}
-	    }
-	    else {
-	    	alert('To restore your feeds please upload the same file downloaded as a backup. It is named CSFeedyBackUp.txt');
-	    }
-	}
-
 
 	return (
 		<div>
@@ -97,5 +73,5 @@ function BackupRestoreFeeds(props) {
 export default BackupRestoreFeeds;
 
 BackupRestoreFeeds.propTypes = {
-	allFeeds: PropTypes.array.isRequired
+	restoreFeeds: PropTypes.func.isRequired
 }

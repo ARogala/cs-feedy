@@ -68,6 +68,35 @@ class App extends Component {
     this.setState({filterText: filterText});
   }
 
+  /*
+    get the file from the user and use readAsText to read the txt doc
+    parse into allFeeds and save allFeeds back to localStorage
+    setState then alert user.
+
+    I would like to add Modals instead of alerts.
+    Tried condition render in BackupRestoreFeeds but could not find
+    a way to set logic back to null without page refresh.
+  */
+  restoreFeeds(evt) {
+    let files = evt.target.files; // FileList object from user
+    if(files[0].name === 'CSFeedyBackUp.txt') { //ensure proper file is uploaded
+      let file = files[0];
+      let reader = new FileReader();
+      //readAsText is asynchronous, so need to use the onload callback
+      //to see the result
+      reader.readAsText(file);
+      reader.onload = (event) => {
+        let allFeeds = JSON.parse(event.target.result);
+        localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+        this.setState({allFeeds: allFeeds});
+        alert('Feeds Successfully Restored.');
+      }
+    }
+    else {
+      alert('To restore your feeds please upload the same file downloaded as a backup. It is named CSFeedyBackUp.txt');
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -101,7 +130,9 @@ class App extends Component {
 
         <Route path='/BackupRestoreFeeds' render={() => (
               <BackupRestoreFeeds
-                allFeeds={this.state.allFeeds}
+                restoreFeeds={(evt) => {
+                  this.restoreFeeds(evt);
+                }}
               />
         )}/>
 
