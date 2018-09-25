@@ -41,7 +41,7 @@ class InputFeedForm extends React.Component {
 
 	render() {
 		return (
-			<form id="feedData" className="feedForm" onSubmit={(e) => this.handleSubmit(e)}>
+			<form className="addFeedForm" onSubmit={(e) => this.handleSubmit(e)}>
 				<fieldset>
 					<legend>Enter RSS feed name, category, and url</legend>
 					<div>
@@ -51,7 +51,7 @@ class InputFeedForm extends React.Component {
 							id="name"
 							name="feed_name"
 							required
-							className="feedForm__input"
+							className="addFeedForm__input"
 							value={this.state.feedName}
 							onChange={(e) => this.handleNameChange(e)}
 						/>
@@ -63,7 +63,7 @@ class InputFeedForm extends React.Component {
 							id="category"
 							name="feed_category"
 							required
-							className="feedForm__input"
+							className="addFeedForm__input"
 							value={this.state.feedCategory}
 							onChange={(e) => this.handleCategoryChange(e)}
 						/>
@@ -76,24 +76,24 @@ class InputFeedForm extends React.Component {
 							name="feed_url"
 							placeholder="http://example.com/feed"
 							required
-							className="feedForm__input"
+							className="addFeedForm__input"
 							value={this.state.feedURL}
 							onChange={(e) => this.handleURLChange(e)}
 						/>
 					</div>
 
-					<div className="btnContainer">
+					<div className="addFeedForm__btnContainer">
 						<button
 							type="submit"
 							value="Submit"
-							className="feedForm__Btn1"
+							className="addFeedForm__btn"
 						>
 							Add Feed
 						</button>
 						<button
 							type="button"
 							value="Reset"
-							className="feedForm__Btn1"
+							className="addFeedForm__btn"
 							onClick={() => this.resetForm()}
 						>
 							Cancel
