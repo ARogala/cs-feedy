@@ -62,11 +62,26 @@
 /*center all block elements*/
 .feedOutput * {
 	margin: 0 auto 0 auto;
+
+	max-width: 90vw;
+	overflow: auto;
 }
 
 .feedArticle {
 	margin-bottom: 20px;
 }
+
+/*.feedArticle pre code {
+	display: block;
+	max-width: 90vw;
+	overflow: auto;
+}
+
+.feedArticle table {
+	display: block;
+	max-width: 90vw;
+	overflow: auto;
+}*/
 
 .feedArticle div {
 	max-width: 90vw;
@@ -98,6 +113,10 @@
 @media screen and (min-width: 1000px) {
 	.feedOutput {
 		width: 50vw;
+	}
+
+	.feedOutput * {
+		max-width: 50vw;
 	}
 
 	.feedArticle div {
