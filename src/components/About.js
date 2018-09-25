@@ -17,7 +17,7 @@ function About() {
 			Developers can then take that data and display it on the screen.
 			If you aren’t interested in all the technical stuff I am about to write in regards to my application,
 			you can skip the rest of this and head over the <Link to='/Instructions'>Instructions</Link> page to get started using CSFeedy.</p><br/>
-			<p>CSFeedy (Client-Side Feed Reader) is a single page web application built in with <a href="https://reactjs.org/">React</a> JavaScript.
+			<p>CSFeedy (Client-Side Feed Reader) is a single page web application built with <a href="https://reactjs.org/">React</a> JavaScript.
 			Some major dependencies are <a href="https://www.npmjs.com/package/rss-parser">rss-parser</a> to parse the feed on the client’s machine
 			and <a href="https://github.com/Rob--W/cors-anywhere">CORS Anywhere</a> proxy server which allows feeds to be loaded in the browser.
 			Many thanks to the maintainers of these projects without whom this application wouldn’t be possible.</p><br/>

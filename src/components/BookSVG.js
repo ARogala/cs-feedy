@@ -63,8 +63,8 @@ function BookSVG() {
 				<path d="M150,0 L155,5 V205 L5,205 L0,200" fill="hsla(52, 5%, 85%, 1)"/>
 
 				<rect x="0" width="150" height="200" fill="hsla(52, 95%, 95%, 1)"/>
-				<g fontSize="25" fontWeight="bold">
-					<text x="5" y="100">Get Reading!</text>
+				<g fontSize="20" fontWeight="bold">
+					<text x="20" y="100">Get Reading!</text>
 				</g>
 				<use href="#page"/>
 				<rect  x="-400" y="0" width="400" height="200" fill="url(#centerGrad)"/>

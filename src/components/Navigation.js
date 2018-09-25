@@ -93,7 +93,7 @@ function Navigation() {
 									to='/BackupRestoreFeeds'
 									onClick={() => hideNav()}
 								>
-									Backup and Restore
+									Backup Restore
 								</Link>
 							</li>
 						</ul>
