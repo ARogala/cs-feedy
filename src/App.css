@@ -10,6 +10,14 @@
  	text-align: center;
  }
 
+ .header__container {
+ 	display: flex;
+ }
+
+ .header__container-title {
+ 	margin: auto auto auto 0px;
+ }
+
 /*
 	styles the main container for DeleteFeedBtnList and
 	FeedBtnList
@@ -41,5 +49,14 @@
 @media screen and (min-width: 500px) {
 	.searchBox {
 		width: 500px;
+	}
+
+	.header {
+		max-width: 500px;
+		margin: auto;
+	}
+
+	.header__container {
+		margin-left: 75px;
 	}
 }

@@ -15,6 +15,8 @@ import Instructions from './components/Instructions';
 import ScrollTopBtn from './components/ScrollTopBtn';
 import DeleteFeedBtnList from './components/DeleteFeedBtnList';
 
+import BookSVG from './components/BookSVG';
+
 //import styles
 import './App.css';
 
@@ -139,8 +141,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <h1 className="header__title">CSFeedy</h1>
-          <h2 className="header__tagline">Feed Reader</h2>
+            <div className="header__container">
+              <BookSVG />
+              <div className="header__container-title">
+                <h1 className="header__title">CSFeedy</h1>
+                <h2 className="header__tagline">Feed Reader</h2>
+              </div>
+            </div>
         </header>
 
         <Navigation />
