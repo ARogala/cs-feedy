@@ -9,7 +9,7 @@ function Instructions() {
 		without having to fetch from the server. Fetching from the server
 		seemed a little too complicated to set up for the simple goal I had
 		in mind.
-		see ManageFeeds.js for an explination on this function
+		see BackupRestoreFeeds.js for an explination on this function
 	*/
 	function starterPackDL() {
 		const starterFeeds = [{"name":"Contemporary Math","category":"Math","url":"http://www.ams.org/rss/conm.rss","id":0},
@@ -75,8 +75,13 @@ function Instructions() {
 			I usually just copy and paste the feed URLs.</p>
 			<p>(Menu => Settings => Add Feeds)</p><br/>
 
-			<h4>Manage Feeds</h4>
-			<p>To backup and restore your feeds, navigate to the Manage Feeds page
+			<h4>Delete Feeds</h4>
+			<p>Deleting feeds is really easy, just navigate to the Delete Feeds page
+			and click on the feed you would like to delete.</p>
+			<p>(Menu => Settings => Delete Feeds)</p><br/>
+
+			<h4>Backup and Restore Feeds</h4>
+			<p>To backup and restore your feeds, navigate to the Backup and Restore page
 			and click the Download Backup or Restore Feeds button.
 			When restoring your feeds, you must upload the same file you downloaded
 			as a backup. You can also download a feeds starter pack <button id="starterPackDL" onClick={() => starterPackDL()}>here</button> to get a feel for this application
@@ -88,11 +93,9 @@ function Instructions() {
 			Your feeds are stored in your internet browsers local storage,
 			not on a remote server. This makes it possible to provide you with a
 			small data driven web app without colleting any of your information.
-			Enjoy!</p><br/>
-			<p>Deleting feeds is really easy, just click on the feed you would
-			like to delete. The list of feeds is directly below the back up
-			and restore section.</p>
-			<p>(Menu => Settings => Manage Feeds)</p>
+			Enjoy!</p>
+			<p>(Menu => Settings => Backup and Restore)</p>
+
 		</div>
 	);
 }
