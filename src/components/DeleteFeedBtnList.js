@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
 //import groupBy helper function
@@ -12,9 +13,29 @@ import './FeedBtnList.css';
 function DeleteFeedBtnList(props) {
 	const deleteSingleFeed = props.deleteSingleFeed;
 	const allFeeds = props.allFeeds;
-	allFeeds.sort(sortBy('category'));
+	let filterText = props.filterText.trim();
+	//remove all spaces g is a global modifier (in other words replace all spaces with '')
+	filterText = filterText.replace(/ /g, '');
+
+	/* 	Filter logic
+		escapeRegExp escapes special characters
+		Regular expressions are patterns used to match character combinations in strings
+
+		so pattern will be a regexp with special char and case 'i' ignored
+		then filter the allFeeds array useing test() to search for a match
+		between the regular expression and a specified string ignoring case and
+		special char.
+		finally sort the filtered list by category
+	*/
+
+	const pattern = new RegExp(escapeRegExp(filterText), 'i');
+
+	let filteredFeeds = allFeeds.filter((feed) => pattern.test((feed.name + feed.category).replace(/ /g,'')));
+	filteredFeeds.sort(sortBy('category'));
+	//console.log(filteredFeeds);
+
 	//groupedFeeds is an object with arrays of feeds for each category {category1:[{...}], category2:[{...}], ...}
-	const groupedFeeds = groupBy(allFeeds, 'category');
+	const groupedFeeds = groupBy(filteredFeeds, 'category');
 	//console.log(groupedFeeds);
 	const allCategories = Object.keys(groupedFeeds);
 	//console.log(allCategories);
@@ -88,5 +109,6 @@ export default DeleteFeedBtnList;
 
 DeleteFeedBtnList.propTypes = {
 	allFeeds: PropTypes.array.isRequired,
-	deleteSingleFeed: PropTypes.func.isRequired
+	deleteSingleFeed: PropTypes.func.isRequired,
+	filterText: PropTypes.string.isRequired
 }
