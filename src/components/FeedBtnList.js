@@ -10,7 +10,6 @@ import groupBy from './groupBy';
 import './FeedBtnList.css';
 
 function FeedBtnList(props) {
-	let feedId = 0;
 	const handleClick = props.handleClick;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
@@ -44,11 +43,6 @@ function FeedBtnList(props) {
 		for each feed category if the number of feeds is greater than 1
 		build the DOM
 	*/
-	//this function prevents the error Don't make functions within a loop  no-loop-func
-	function addFeedId(feed) {
-		feed.id = feedId;
-		feedId = feedId + 1;
-	}
 	const dropDownUL = [];
 	for(let i = 0; i < allCategories.length; i++ ) {
 		if(groupedFeeds[allCategories[i]].length > 1) {
@@ -58,7 +52,6 @@ function FeedBtnList(props) {
 					<span>{allCategories[i]}:</span>
 					<ul aria-label="submenu" className="dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
-							addFeedId(feed);
 							return (
 								<li
 									className="feedBtn"
@@ -83,8 +76,6 @@ function FeedBtnList(props) {
 	const singleFeed = [];
 	for(let i = 0; i < allCategories.length; i++) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
-			groupedFeeds[allCategories[i]][0].id = feedId;
-			feedId = feedId + 1;
 			singleFeed.push(
 				<li
 					className="feedBtn"
@@ -101,9 +92,7 @@ function FeedBtnList(props) {
 		}
 	}
 	//console.log(allFeeds);
-	//set local storage equal to the modified allFeeds array
-	//this adds the Ids to the localStrorage allFeeds
-	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+
 	return (
 		<ul className="feedBtnList">
 			{dropDownUL}

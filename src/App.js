@@ -31,7 +31,8 @@ class App extends Component {
       loading: null,
       //pull allFeeds from localStorage or set as an empty array if storage is empty
       allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]'),
-      filterText: ''
+      filterText: '',
+      feedId: 0
     };
   }
 
@@ -99,6 +100,7 @@ class App extends Component {
 
   saveData(feedName, feedCategory, feedURL) {
     let allFeeds = this.state.allFeeds;
+    let feedId = this.state.feedId;
     //push a new empty object on the all feeds array
     allFeeds.push({});
 
@@ -107,6 +109,13 @@ class App extends Component {
     allFeeds[newFeedIndex].name = feedName;
     allFeeds[newFeedIndex].category = feedCategory;
     allFeeds[newFeedIndex].url = feedURL;
+
+    //add feedId
+    for(let i = 0; i < allFeeds.length; i++) {
+      allFeeds[i].id = feedId;
+      feedId = feedId + 1;
+    }
+
     //save new feed array locally
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
     this.setState({allFeeds: allFeeds});
