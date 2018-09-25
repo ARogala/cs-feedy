@@ -14,8 +14,7 @@ import About from './components/About';
 import Instructions from './components/Instructions';
 import ScrollTopBtn from './components/ScrollTopBtn';
 import DeleteFeedBtnList from './components/DeleteFeedBtnList';
-
-import BookSVG from './components/BookSVG';
+import Header from './components/Header';
 
 //import styles
 import './App.css';
@@ -140,24 +139,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="header">
-            <div className="header__container">
-              <BookSVG />
-              <div className="header__container-title">
-                <h1 className="header__title">CSFeedy</h1>
-                <h2 className="header__tagline">Feed Reader</h2>
-              </div>
-            </div>
-        </header>
 
         <Navigation />
 
         <Route path='/About' render={() => (
-          <About />
+          <div>
+            <Header />
+            <About />
+          </div>
         )} />
 
         <Route path='/Instructions' render={() => (
-          <Instructions />
+          <div>
+            <Header />
+            <Instructions />
+          </div>
         )} />
 
         <Route path='/AddFeeds' render={() => (
@@ -196,6 +192,7 @@ class App extends Component {
 
         <Route exact path='/' render={() => (
           <div>
+          <Header />
             <div className="searchBox">
               <FeedBtnSearchBar
                 filterText={this.state.filterText}
