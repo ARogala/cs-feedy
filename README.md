@@ -37,7 +37,7 @@ Of course, please credit me (Andrew Rogala at https://github.com/ARogala/cs-feed
 
 3. Improve accessibility.
 
-3. Support Edge and Internet Explorer (Maybe??)
+3. Support Internet Explorer (Maybe??)
 
 ## Dependencies
 
