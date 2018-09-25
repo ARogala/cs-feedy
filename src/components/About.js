@@ -26,7 +26,7 @@ function About() {
 			First, there is CORS (Cross-Origin Resource Sharing) and the same origin policy of web browsers.
 			CORS is what allows a web application on one domain (https://csfeedy.surge.sh) to request
 			and access resources on another domain (https://www.reddit.com/.rss).
-			Modern web browsers follow what is called the same origin policy which means a web application
+			Modern web browsers follow what is called the same origin policy, which means a web application
 			can only request resources from its own domain unless the other domain has resources that respond
 			with the appropriate CORS headers. This means that CSFeedy is very restricted to what resources it can access
 			from other domains. Not all RSS feeds are CORS enabled! This is where CORS Anywhere comes to the rescue.
@@ -36,8 +36,8 @@ function About() {
 			restrict the access to only the CSFeedy domain; as having an open proxy is never a good idea.
 			One major problem solved!! Second, to process the RSS xml response into a useable JavaScript object
 			the rss-parser library saves the day and provides a solution.
-			No need to reinvent the wheel here let’s just surf the wave of Frontend Development.
-			Besides I still had plenty of problems to solve in order to finish my application.</p><br/>
+			No need to reinvent the wheel here, let’s just surf the wave of Frontend Development.
+			Besides, I still had plenty of problems to solve in order to finish my application.</p><br/>
 			<p>A few interesting problems I solved while building this application are as follows:</p>
 			<p>The feed buttons are generated dynamically by filtering, grouping, and then rendering
 			the buttons from the array of objects stored in local storage.
@@ -52,11 +52,11 @@ function About() {
 			then converting that string to a blob of type text. Next generate a URL from the blob so the text
 			can be passed as a URL to API’s that expect URL’s. Finally, pass that URL, that now contains the data,
 			to an html anchor tag and pragmatically click the anchor tag for download.
-			See the backUpFeeds() function in ManageFeeds.js for code documentation.</p><br/>
+			See the backUpFeeds() function in BackupRestoreFeeds.js for code documentation.</p><br/>
 			<p>To restore the local storage state first get the file from the user with an html input tag of type file.
 			Then user JavaScript’s readAsText() method from the File API to read the text document.
 			Next, parse the read text document into a variable and save the data back to local storage.
-			See restoreFeeds() function in ManageFeeds.js for code documentation.</p><br/>
+			See restoreFeeds() function in App.js for code documentation.</p><br/>
 			<p>Unfortunately, as of now, if the user makes a mistake entering a feed the only option
 			is to delete it and re-enter it correctly. CSFeedy is missing the Update in CRUD
 			(Create Read/Retrieve Update and Delete). I hope to add functionality to update a feed in the future.
@@ -64,7 +64,7 @@ function About() {
 			Thus, users can switch between a few feed lists instead of having one huge list.
 			Accessibility needs some improvement as well.
 			This app works in Google Chrome, Firefox, Microsoft Edge, and Opera.
-			Mobile support for Android Chrome, Firefox, and Opera.
+			Mobile support for Android Chrome, Firefox, and Opera. Sorry no support for Internet Explorer.
 			Check out the code for this application on my <a href="https://github.com/ARogala/cs-feedy">GitHub</a> page.</p>
 			<p>Hope you enjoy CSFeedy!</p>
 
