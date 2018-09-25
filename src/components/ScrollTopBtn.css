@@ -27,3 +27,23 @@
 .scrollTop:active {
 	transform: translateY(3px);
 }
+
+
+/*desktop adjustment*/
+@media screen and (min-width: 1000px) {
+	.scrollTop {
+		right: 20rem;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.scrollTop {
+		right: 30rem;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.scrollTop {
+		right: 37rem;
+	}
+}
