@@ -46,3 +46,7 @@ Of course, please credit me (Andrew Rogala at https://github.com/ARogala/cs-feed
 2. rss-parser https://www.npmjs.com/package/rss-parser
 
 3. All other dependencies are listed in package.json
+
+4. Credit for the SVG Book animation belongs to
+
+https://gist.github.com/tmrDevelops/f199f0e503d7192b30ad
