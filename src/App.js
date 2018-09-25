@@ -113,6 +113,19 @@ class App extends Component {
     alert('Feed added successfully!');
   }
 
+  deleteSingleFeed(id) {
+    const allFeeds = this.state.allFeeds;
+    //loop through allFeeds array delete object with matching id
+    //set localStorage equal to the modified allFeeds array
+    for(let i = 0; i < allFeeds.length; i++) {
+      if(allFeeds[i].id === id) {
+        allFeeds.splice(i,1);
+      }
+    }
+    localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+    this.setState({allFeeds: allFeeds});
+  }
+
   render() {
     return (
       <div className="App">
@@ -142,6 +155,9 @@ class App extends Component {
         <Route path='/DeleteFeeds' render={() => (
               <DeleteFeedBtnList
                 allFeeds={this.state.allFeeds}
+                deleteSingleFeed={(id) => {
+                  this.deleteSingleFeed(id);
+                }}
               />
 
         )} />
