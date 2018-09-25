@@ -46,6 +46,10 @@
 .deleteHint {
 	text-align: center;
 	padding: 5px;
+	font-weight: bold;
+	color: #E15959;
+	font-size: 1.75rem;
+	text-decoration: underline;
 }
 
 @media screen and (min-width: 750px) {

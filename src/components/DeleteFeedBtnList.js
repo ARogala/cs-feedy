@@ -94,7 +94,7 @@ function DeleteFeedBtnList(props) {
 	}
 
 	return (
-		<div className="searchBox">
+		<div>
 			<p className="deleteHint">Click a Feed to Delete</p>
 			<ul className="feedBtnList">
 				{dropDownUL}
