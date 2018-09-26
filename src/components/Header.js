@@ -2,6 +2,8 @@ import React from 'react';
 
 import BookSVG from './BookSVG';
 
+import './Header.css'
+
 function Header(props) {
 	return(
 		<header className="header">

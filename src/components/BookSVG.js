@@ -64,7 +64,7 @@ function BookSVG() {
 
 				<rect x="0" width="150" height="200" fill="hsla(52, 95%, 95%, 1)"/>
 				<g fontSize="20" fontWeight="bold">
-					<text x="20" y="100">Get Reading!</text>
+					<text x="15" y="100">Get Reading!</text>
 				</g>
 				<use href="#page"/>
 				<rect  x="-400" y="0" width="400" height="200" fill="url(#centerGrad)"/>
