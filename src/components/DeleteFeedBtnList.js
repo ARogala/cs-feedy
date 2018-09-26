@@ -6,8 +6,6 @@ import sortBy from 'sort-by';
 //import groupBy helper function
 import groupBy from './groupBy';
 
-//borrow styles from FeedBtnList the two components
-//share the same structure
 import './DeleteFeedBtnList.css';
 
 function DeleteFeedBtnList(props) {
