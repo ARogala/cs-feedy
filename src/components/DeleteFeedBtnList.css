@@ -10,7 +10,7 @@
 	list-style: none;
 	margin-left: 10px;
 	padding-bottom: 5px;
-	height: 120px;
+	height: 70vh;
 	overflow: scroll;
 	overflow-x: hidden;
 }
@@ -36,15 +36,21 @@
 	background-color: white;
 	cursor: pointer;
 	font-weight: bold;
+	color: #E15959;
+	border-radius: 20px;
 }
 
 .delete__feedBtn:focus {
-	outline: 2px solid blue;
+	background-color: white;
+	outline: none;
+	font-weight: bold;
+	color: #E15959;
+	border-radius: 20px;
 }
 
-@media screen and (min-width: 750px) {
-	.delete__feedBtnList {
-		height: 220px;
+@media screen and (min-width: 500px) {
+	.delete__feedBtn {
+		width: 300px;
 	}
 }
 
