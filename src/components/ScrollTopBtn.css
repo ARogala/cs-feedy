@@ -8,7 +8,6 @@
 
 
 .scrollTop {
-	background-color: #A8E8E5;
 	border-radius: 20px;
 	padding: 5px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -17,12 +16,17 @@
 	right: 20px;
 	z-index: 10;
 	display: none;
+
+	background: rgb(181,242,239);
+    background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
 .scrollTop:hover,
 .scrollTop:focus {
-	background-color: #BDC4CF;
+	background: rgba(149,181,226,1);
+	font-weight: bold;
 }
+
 
 .scrollTop:active {
 	transform: translateY(3px);
