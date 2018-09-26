@@ -38,5 +38,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/javascript">
+      if (/MSIE 10/i.test(navigator.userAgent)) {
+        // This is internet explorer 10
+        window.alert('Sorry this app only works with Microsoft Edge, Google Chrome, Firefox, or Opera');
+      }
+
+      if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
+        // This is internet explorer 9 or 11
+        window.alert('Sorry this app only works with Microsoft Edge, Google Chrome, Firefox, or Opera');
+      }
+    </script>
   </body>
 </html>
