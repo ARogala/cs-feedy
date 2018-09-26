@@ -36,10 +36,21 @@
 	background-color: white;
 	cursor: pointer;
 	font-weight: bold;
+	border-radius: 20px;
 }
 
 .feedBtn:focus {
-	outline: 2px solid blue;
+	outline: none;
+	background-color: white;
+	font-weight: bold;
+	border-radius: 20px;
+}
+
+
+@media screen and (min-width: 500px) {
+	.feedBtn {
+		width: 300px;
+	}
 }
 
 @media screen and (min-width: 750px) {
