@@ -15,7 +15,7 @@ import Instructions from './components/Instructions';
 import ScrollTopBtn from './components/ScrollTopBtn';
 import DeleteFeedBtnList from './components/DeleteFeedBtnList';
 import Header from './components/Header';
-
+import EditFeedBtnList from './components/EditFeedBtnList';
 
 //import styles
 import './App.css';
@@ -171,6 +171,9 @@ class App extends Component {
                     filterText={this.state.filterText}
                     handleFilterTextChange={(filterText) =>
                     this.handleFilterTextChange(filterText)}
+                  />
+                  <EditFeedBtnList
+
                   />
                 </div>
 
