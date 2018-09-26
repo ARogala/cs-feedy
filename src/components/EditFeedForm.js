@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './EditFeedForm.css';
+import './InputFeedForm.css';
 
 class EditFeedForm extends React.Component {
 	constructor(props) {
@@ -43,7 +43,7 @@ class EditFeedForm extends React.Component {
 		return (
 			<form className="addFeedForm" onSubmit={(e) => this.handleSubmit(e)}>
 				<fieldset>
-					<legend>Enter RSS feed name, category, and url</legend>
+					<legend>Edit RSS feed name, category, and url</legend>
 					<div>
 						<label htmlFor="name">Feed Name:</label>
 						<input
@@ -88,7 +88,7 @@ class EditFeedForm extends React.Component {
 							value="Submit"
 							className="addFeedForm__btn"
 						>
-							Add Feed
+							Save Changes
 						</button>
 						<button
 							type="button"

@@ -16,6 +16,7 @@ import ScrollTopBtn from './components/ScrollTopBtn';
 import DeleteFeedBtnList from './components/DeleteFeedBtnList';
 import Header from './components/Header';
 import EditFeedBtnList from './components/EditFeedBtnList';
+import EditFeedForm from './components/EditFeedForm';
 
 //import styles
 import './App.css';
@@ -177,6 +178,7 @@ class App extends Component {
 
         <Route path='/EditFeeds' render={() => (
             <div className="edit">
+              <EditFeedForm />
               <div className="edit__searchBox">
                 <FeedBtnSearchBar
                   filterText={this.state.filterText}
