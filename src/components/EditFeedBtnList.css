@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/**
+ * CSFeedy
+ * @authors Andrew Rogala
+ * @date    9/13/2018
+ * @version 1.0
+ */
+
+.edit__feedBtnList {
+	list-style: none;
+	margin-left: 10px;
+	padding-bottom: 5px;
+	height: 60vh;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.edit__feedBtnList span {
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.edit__dropDown {
+	list-style: none;
+}
+
+.edit__feedBtn {
+	height: 40px;
+	width: 90%;
+	text-align: center;
+	padding: 10px;
+	margin: auto;
+}
+
+.edit__feedBtn:hover {
+	background-color: white;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 20px;
+}
+
+.edit__feedBtn:focus {
+	background-color: white;
+	outline: none;
+	font-weight: bold;
+	border-radius: 20px;
+}
+
+@media screen and (min-width: 500px) {
+	.edit__feedBtn {
+		width: 300px;
+	}
+}
+
+.editHint {
+	text-align: center;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 1.75rem;
+	text-decoration: underline;
+}

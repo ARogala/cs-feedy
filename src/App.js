@@ -166,19 +166,19 @@ class App extends Component {
         )} />
 
         <Route path='/EditFeeds' render={() => (
-                <div className="edit">
-                  <FeedBtnSearchBar
-                    filterText={this.state.filterText}
-                    handleFilterTextChange={(filterText) =>
-                    this.handleFilterTextChange(filterText)}
-                  />
-                  <EditFeedBtnList
-                    allFeeds={this.state.allFeeds}
-                    filterText={this.state.filterText}
-                  />
-                </div>
-
-
+            <div className="edit">
+              <div className="edit__searchBox">
+                <FeedBtnSearchBar
+                  filterText={this.state.filterText}
+                  handleFilterTextChange={(filterText) =>
+                  this.handleFilterTextChange(filterText)}
+                />
+                <EditFeedBtnList
+                  allFeeds={this.state.allFeeds}
+                  filterText={this.state.filterText}
+                />
+              </div>
+            </div>
         )} />
 
         <Route path='/DeleteFeeds' render={() => (
