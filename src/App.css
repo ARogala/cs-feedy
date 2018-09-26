@@ -11,17 +11,21 @@
 	FeedBtnList
 */
  .searchBox {
- 	background-color: #BDC4CF;
  	margin: 10px auto 10px auto;
  	border-radius: 10px;
  	width: 90vw;
+
+	background: rgb(212,209,209);
+    background: linear-gradient(90deg, rgba(212,209,209,1) 0%, rgba(201,201,201,1) 50%, rgba(212,209,209,1) 100%);
  }
 
  .delete__searchBox {
- 	background-color: #BDC4CF;
  	margin: 10px auto 10px auto;
  	border-radius: 10px;
  	width: 90vw;
+
+	background: rgb(212,209,209);
+    background: linear-gradient(90deg, rgba(212,209,209,1) 0%, rgba(201,201,201,1) 50%, rgba(212,209,209,1) 100%);
  }
 
  .footer {
@@ -30,7 +34,9 @@
  	left: 0;
  	width: 100vw;
  	height: 6.5rem;
- 	background-color: #BDC4CF;
+
+	background: rgb(212,209,209);
+    background: linear-gradient(90deg, rgba(212,209,209,1) 0%, rgba(201,201,201,1) 50%, rgba(212,209,209,1) 100%);
  }
 
  .footer__links-box {

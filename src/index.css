@@ -27,8 +27,11 @@ html {
 body {
 	box-sizing: border-box;
 	font-size: 1.5rem;
-	background-color: #E9F2FF;
+	/*background-color: #E9F2FF;*/
 	margin-bottom: 7.5rem;
+
+	background: rgb(233,242,255);
+    background: linear-gradient(90deg, rgba(203,220,255,1) 0%, rgba(233,242,255,1) 50%, rgba(203,220,255,1) 100%);
 }
 
 /*remove some default button styles*/
