@@ -81,6 +81,15 @@ function Navigation() {
 							<li>
 								<Link
 									className="nav__link"
+									to='/EditFeeds'
+									onClick={() => hideNav()}
+								>
+									Edit Feeds
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="nav__link"
 									to='/DeleteFeeds'
 									onClick={() => hideNav()}
 								>

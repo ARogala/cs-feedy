@@ -15,6 +15,7 @@ import Instructions from './components/Instructions';
 import ScrollTopBtn from './components/ScrollTopBtn';
 import DeleteFeedBtnList from './components/DeleteFeedBtnList';
 import Header from './components/Header';
+import EditFeeds from './components/EditFeeds';
 
 //import styles
 import './App.css';
@@ -162,6 +163,12 @@ class App extends Component {
                   this.saveData(feedName, feedCategory, feedURL);
                 }}
               />
+        )} />
+
+        <Route path='/EditFeeds' render={() => (
+                <EditFeeds
+
+                />
         )} />
 
         <Route path='/DeleteFeeds' render={() => (
