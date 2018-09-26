@@ -173,7 +173,8 @@ class App extends Component {
                     this.handleFilterTextChange(filterText)}
                   />
                   <EditFeedBtnList
-
+                    allFeeds={this.state.allFeeds}
+                    filterText={this.state.filterText}
                   />
                 </div>
 
