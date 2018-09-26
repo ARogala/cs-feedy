@@ -10,7 +10,7 @@ import groupBy from './groupBy';
 import './EditFeedBtnList.css';
 
 function EditFeedBtnList(props) {
-	//const editSingleFeed = props.deleteSingleFeed;
+	const getFeedToEdit = props.getFeedToEdit;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
 	//remove all spaces g is a global modifier (in other words replace all spaces with '')
@@ -35,7 +35,7 @@ function EditFeedBtnList(props) {
 
 	//groupedFeeds is an object with arrays of feeds for each category {category1:[{...}], category2:[{...}], ...}
 	const groupedFeeds = groupBy(filteredFeeds, 'category');
-	console.log(groupedFeeds);
+	//console.log(groupedFeeds);
 	const allCategories = Object.keys(groupedFeeds);
 	//console.log(allCategories);
 
@@ -55,8 +55,8 @@ function EditFeedBtnList(props) {
 							return (
 								<li
 									className="edit__feedBtn"
-									// onClick={() => deleteSingleFeed(feed.id)}
-									// onKeyPress={() => deleteSingleFeed(feed.id)}
+									onClick={() => getFeedToEdit(feed.id)}
+									onKeyPress={() => getFeedToEdit(feed.id)}
 									key={feed.id}
 									id={feed.id}
 									role="button"
@@ -79,8 +79,8 @@ function EditFeedBtnList(props) {
 			singleFeed.push(
 				<li
 					className="edit__feedBtn"
-					//onClick={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
-					//onKeyPress={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
+					onClick={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
+					onKeyPress={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
@@ -109,6 +109,6 @@ export default EditFeedBtnList;
 
 EditFeedBtnList.propTypes = {
 	allFeeds: PropTypes.array.isRequired,
-	//editSingleFeed: PropTypes.func.isRequired,
+	getFeedToEdit: PropTypes.func.isRequired,
 	filterText: PropTypes.string.isRequired
 }

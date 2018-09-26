@@ -137,6 +137,16 @@ class App extends Component {
     this.setState({allFeeds: allFeeds});
   }
 
+  getFeedToEdit(id) {
+    const allFeeds = this.state.allFeeds;
+
+    for(let i = 0; i < allFeeds.length; i++) {
+      if(allFeeds[i].id === id) {
+        console.log(allFeeds[i]);
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -176,6 +186,9 @@ class App extends Component {
                 <EditFeedBtnList
                   allFeeds={this.state.allFeeds}
                   filterText={this.state.filterText}
+                  getFeedToEdit={(id) => {
+                    this.getFeedToEdit(id);
+                  }}
                 />
               </div>
             </div>
