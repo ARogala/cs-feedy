@@ -36,16 +36,18 @@
 }
 
 .addFeedForm__btn {
-	background-color: #A8E8E5;
 	border-radius: 20px;
 	padding: 5px;
 	margin: 10px 10px 0px 10px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	background: rgb(181,242,239);
+    background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
 .addFeedForm__btn:hover,
 .addFeedForm__btn:focus {
-	background-color: #BDC4CF;
+	background: rgb(212,209,209);
 }
 
 .addFeedForm__btn:active {
