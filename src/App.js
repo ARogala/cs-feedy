@@ -165,7 +165,7 @@ class App extends Component {
         )} />
 
         <Route path='/DeleteFeeds' render={() => (
-            <div className="searchBox">
+            <div className="delete__searchBox">
               <FeedBtnSearchBar
                 filterText={this.state.filterText}
                 handleFilterTextChange={(filterText) =>

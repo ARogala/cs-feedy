@@ -17,6 +17,13 @@
  	width: 90vw;
  }
 
+ .delete__searchBox {
+ 	background-color: #BDC4CF;
+ 	margin: 10px auto 10px auto;
+ 	border-radius: 10px;
+ 	width: 90vw;
+ }
+
  .footer {
  	position: fixed;
  	bottom: 0;
@@ -36,6 +43,10 @@
 
 @media screen and (min-width: 500px) {
 	.searchBox {
+		width: 500px;
+	}
+
+	.delete__searchBox {
 		width: 500px;
 	}
 }

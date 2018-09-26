@@ -8,7 +8,7 @@ import groupBy from './groupBy';
 
 //borrow styles from FeedBtnList the two components
 //share the same structure
-import './FeedBtnList.css';
+import './DeleteFeedBtnList.css';
 
 function DeleteFeedBtnList(props) {
 	const deleteSingleFeed = props.deleteSingleFeed;
@@ -51,11 +51,11 @@ function DeleteFeedBtnList(props) {
 			dropDownUL.push(
 				<li key={i}>
 					<span>{allCategories[i]}:</span>
-					<ul aria-label="submenu" className="dropDown">
+					<ul aria-label="submenu" className="delete__dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
-									className="feedBtn"
+									className="delete__feedBtn"
 									onClick={() => deleteSingleFeed(feed.id)}
 									onKeyPress={() => deleteSingleFeed(feed.id)}
 									key={feed.id}
@@ -79,7 +79,7 @@ function DeleteFeedBtnList(props) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
 			singleFeed.push(
 				<li
-					className="feedBtn"
+					className="delete__feedBtn"
 					onClick={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 					onKeyPress={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 					key={groupedFeeds[allCategories[i]][0].id}
@@ -96,7 +96,7 @@ function DeleteFeedBtnList(props) {
 	return (
 		<div>
 			<p className="deleteHint">Click a Feed to Delete</p>
-			<ul className="feedBtnList">
+			<ul className="delete__feedBtnList">
 				{dropDownUL}
 				<span>Single Feeds:</span>
 				{singleFeed}
