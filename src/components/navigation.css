@@ -6,6 +6,8 @@
  * @version 1.0
  */
 
+ /*old color  #A8E8E5*/
+
 .nav__checkbox {
 	display: none;
 }
@@ -16,13 +18,13 @@
 	height: 5rem;
 	top: 1rem;
 	right: 1rem;
-
-	background-color: #A8E8E5;
 	box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
 	border-radius: 10px;
 	text-align: center;
 	cursor: pointer;
 
+	background: rgb(181,242,239);
+    background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
 .nav__button:focus {
@@ -93,7 +95,9 @@
 
 .nav__ul {
 	list-style: none;
-	background-color: #A8E8E5;
+
+	background: rgb(181,242,239);
+    background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
 .nav__li-dropdown {
@@ -155,8 +159,10 @@
 	width: 150px;
 	top: 0px;
 	left: 150px;
-	background-color: #A8E8E5;
 	display: none;
+
+	background: rgb(181,242,239);
+    background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
 /*
