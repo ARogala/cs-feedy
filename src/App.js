@@ -142,9 +142,25 @@ class App extends Component {
     this.setState({allFeeds: allFeeds});
   }
 
+  /*
+    The update feeds functionality works as follows:
+
+    EditFeedBtnList will call getFeedToEdit() and pass in the id when a feed btn is clicked
+    getFeedToEdit() will loop through allFeeds finding a match to the id
+    and setting the editFeed states equal to the current values in storage
+
+    The controlled form component EditFeedForm is passed all the editFeed initial states
+    EditFeedForm sets the input fields to these initial states.
+    EditFeedForm is passed handleChange() functions for each editFeed state; thus allowing the inputs to update when changed
+    EditFeedForm is passed resetEditForm() function to reset the form when called
+    EditFeedForm is passed handleEditSubmit() function which gets the edited form data from the inputs,
+    adds the new data to allFeeds, saves allFeeds
+    to localStorage, sets the allFeeds state, and alerts the user of success.
+
+    EditFeedForm is also passed the feed id so we can track which feed to edit in handleEditSubmit()
+  */
   getFeedToEdit(id) {
     const allFeeds = this.state.allFeeds;
-
     for(let i = 0; i < allFeeds.length; i++) {
       if(allFeeds[i].id === id) {
         console.log(allFeeds[i]);
@@ -175,12 +191,21 @@ class App extends Component {
   }
 
   handleEditSubmit(e, newName, newCategory, newURL, id) {
+    let allFeeds = this.state.allFeeds;
     e.preventDefault();
-    console.log('must save data');
-    console.log(newName);
-    console.log(newCategory);
-    console.log(newURL);
-    console.log(id);
+    for(let i = 0; i < allFeeds.length; i++) {
+      if(allFeeds[i].id === id) {
+        allFeeds[i].name = newName;
+        allFeeds[i].category = newCategory;
+        allFeeds[i].url = newURL;
+        console.log(allFeeds[i]);
+      }
+    }
+
+    //save new feed array locally
+    localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+    this.setState({allFeeds: allFeeds});
+    alert('Feed updated successfully!');
   }
 
   render() {
