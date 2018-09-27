@@ -57,10 +57,7 @@ function About() {
 			Then user JavaScript’s readAsText() method from the File API to read the text document.
 			Next, parse the read text document into a variable and save the data back to local storage.
 			See restoreFeeds() function in App.js for code documentation.</p><br/>
-			<p>Unfortunately, as of now, if the user makes a mistake entering a feed the only option
-			is to delete it and re-enter it correctly. CSFeedy is missing the Update in CRUD
-			(Create Read/Retrieve Update and Delete). I hope to add functionality to update a feed in the future.
-			I would also like to include functionality that allows more than one feed list.
+			<p>Further plans are to include functionality that allows more than one feed list.
 			Thus, users can switch between a few feed lists instead of having one huge list.
 			Accessibility needs some improvement as well.
 			This app works in Google Chrome, Firefox, Microsoft Edge, and Opera.
