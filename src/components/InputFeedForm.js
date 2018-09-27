@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './InputFeedForm.css';
+import './FeedForm.css';
 
 class InputFeedForm extends React.Component {
 	constructor(props) {
@@ -41,7 +41,7 @@ class InputFeedForm extends React.Component {
 
 	render() {
 		return (
-			<form className="addFeedForm" onSubmit={(e) => this.handleSubmit(e)}>
+			<form className="FeedForm" onSubmit={(e) => this.handleSubmit(e)}>
 				<fieldset>
 					<legend>Enter RSS feed name, category, and url</legend>
 					<div>
@@ -51,7 +51,7 @@ class InputFeedForm extends React.Component {
 							id="name"
 							name="feed_name"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={this.state.feedName}
 							onChange={(e) => this.handleNameChange(e)}
 						/>
@@ -63,7 +63,7 @@ class InputFeedForm extends React.Component {
 							id="category"
 							name="feed_category"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={this.state.feedCategory}
 							onChange={(e) => this.handleCategoryChange(e)}
 						/>
@@ -76,24 +76,24 @@ class InputFeedForm extends React.Component {
 							name="feed_url"
 							placeholder="http://example.com/feed"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={this.state.feedURL}
 							onChange={(e) => this.handleURLChange(e)}
 						/>
 					</div>
 
-					<div className="addFeedForm__btnContainer">
+					<div className="FeedForm__btnContainer">
 						<button
 							type="submit"
 							value="Submit"
-							className="addFeedForm__btn"
+							className="FeedForm__btn"
 						>
 							Add Feed
 						</button>
 						<button
 							type="button"
 							value="Reset"
-							className="addFeedForm__btn"
+							className="FeedForm__btn"
 							onClick={() => this.resetForm()}
 						>
 							Cancel

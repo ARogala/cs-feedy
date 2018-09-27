@@ -6,20 +6,20 @@
  * @version 1.0
  */
 
-.addFeedForm fieldset {
+.FeedForm fieldset {
 	padding: 10px 10px 15px 10px;
 	margin: 10px 10px 0px 10px;
 	border: 1px solid black;
 	border-radius: 10px;
 }
 
-.addFeedForm legend {
+.FeedForm legend {
 	text-align: center;
 	font-weight: bold;
 	padding: 2px;
 }
 
-.addFeedForm__input {
+.FeedForm__input {
 	width: 100%;
 	border: 1px solid black;
 	border-radius: 20px;
@@ -27,15 +27,15 @@
 	outline: none;
 }
 
-.addFeedForm__input:focus {
+.FeedForm__input:focus {
 	background-color: lightyellow;
 }
 
-.addFeedForm__btnContainer {
+.FeedForm__btnContainer {
 	text-align: center;
 }
 
-.addFeedForm__btn {
+.FeedForm__btn {
 	border-radius: 20px;
 	padding: 5px;
 	margin: 10px 10px 0px 10px;
@@ -45,17 +45,17 @@
     background: linear-gradient(90deg, rgba(181,242,239,1) 0%, rgba(131,237,232,1) 50%, rgba(181,242,239,1) 100%);
 }
 
-.addFeedForm__btn:hover,
-.addFeedForm__btn:focus {
+.FeedForm__btn:hover,
+.FeedForm__btn:focus {
 	background: rgb(212,209,209);
 }
 
-.addFeedForm__btn:active {
+.FeedForm__btn:active {
 	transform: translateY(3px);
 }
 
 @media screen and (min-width: 500px) {
-	.addFeedForm {
+	.FeedForm {
 		max-width: 500px;
 		margin: auto;
 	}

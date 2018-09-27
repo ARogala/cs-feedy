@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './InputFeedForm.css';
+import './FeedForm.css';
 
 function EditFeedForm(props)  {
 	const editRenderLogic = props.editRenderLogic;
@@ -19,7 +19,7 @@ function EditFeedForm(props)  {
 
 	if(editRenderLogic) {
 		return (
-			<form className="addFeedForm" id="editFeedForm"
+			<form className="FeedForm"
 				onSubmit={(e, newName, newCategory, newURL, id) => {
 					handleEditSubmit(e, editFeedName, editFeedCategory, editFeedURL, editFeedId);
 					resetEditForm();
@@ -34,7 +34,7 @@ function EditFeedForm(props)  {
 							id="name"
 							name="feed_name"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={editFeedName}
 							onChange={(e) => handleNameChange(e)}
 						/>
@@ -46,7 +46,7 @@ function EditFeedForm(props)  {
 							id="category"
 							name="feed_category"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={editFeedCategory}
 							onChange={(e) => handleCategoryChange(e)}
 						/>
@@ -59,24 +59,24 @@ function EditFeedForm(props)  {
 							name="feed_url"
 							placeholder="http://example.com/feed"
 							required
-							className="addFeedForm__input"
+							className="FeedForm__input"
 							value={editFeedURL}
 							onChange={(e) => handleURLChange(e)}
 						/>
 					</div>
 
-					<div className="addFeedForm__btnContainer">
+					<div className="FeedForm__btnContainer">
 						<button
 							type="submit"
 							value="Submit"
-							className="addFeedForm__btn"
+							className="FeedForm__btn"
 						>
 							Save Changes
 						</button>
 						<button
 							type="button"
 							value="Reset"
-							className="addFeedForm__btn"
+							className="FeedForm__btn"
 							onClick={() => resetEditForm()}
 						>
 							Cancel
