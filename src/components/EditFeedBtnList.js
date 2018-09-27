@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
+import FeedBtnSearchBar from './FeedBtnSearchBar';
+
 //import groupBy helper function
 import groupBy from './groupBy';
 
@@ -10,9 +12,11 @@ import groupBy from './groupBy';
 import './EditFeedBtnList.css';
 
 function EditFeedBtnList(props) {
+	const editRenderLogic = props.editRenderLogic;
 	const getFeedToEdit = props.getFeedToEdit;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
+
 	//remove all spaces g is a global modifier (in other words replace all spaces with '')
 	filterText = filterText.replace(/ /g, '');
 
@@ -92,23 +96,33 @@ function EditFeedBtnList(props) {
 		}
 	}
 
-
-	return (
-		<div>
-			<p className="editHint">Click a Feed to Edit</p>
-			<ul className="edit__feedBtnList">
-				{dropDownUL}
-				<span>Single Feeds:</span>
-				{singleFeed}
-			</ul>
-		</div>
-	);
+	if(editRenderLogic === false) {
+		return (
+			<div>
+				<FeedBtnSearchBar
+					filterText={props.filterText}
+					handleFilterTextChange={props.handleFilterTextChange}
+				/>
+				<p className="editHint">Click a Feed to Edit</p>
+				<ul className="edit__feedBtnList">
+					{dropDownUL}
+					<span>Single Feeds:</span>
+					{singleFeed}
+				</ul>
+			</div>
+		);
+	}
+	else {
+		return(null);
+	}
 }
 
 export default EditFeedBtnList;
 
 EditFeedBtnList.propTypes = {
 	allFeeds: PropTypes.array.isRequired,
+	filterText: PropTypes.string.isRequired,
 	getFeedToEdit: PropTypes.func.isRequired,
-	filterText: PropTypes.string.isRequired
+	handleFilterTextChange: PropTypes.func.isRequired,
+	editRenderLogic: PropTypes.bool.isRequired
 }

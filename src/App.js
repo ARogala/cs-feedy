@@ -39,7 +39,8 @@ class App extends Component {
       editFeedName: '',
       editFeedCategory: '',
       editFeedURL: '',
-      editFeedId: 0
+      editFeedId: 0,
+      editRenderLogic: false
     };
   }
 
@@ -163,11 +164,12 @@ class App extends Component {
     const allFeeds = this.state.allFeeds;
     for(let i = 0; i < allFeeds.length; i++) {
       if(allFeeds[i].id === id) {
-        console.log(allFeeds[i]);
+        //console.log(allFeeds[i]);
         this.setState({editFeedName: allFeeds[i].name});
         this.setState({editFeedCategory: allFeeds[i].category});
         this.setState({editFeedURL: allFeeds[i].url});
         this.setState({editFeedId: allFeeds[i].id});
+        this.setState({editRenderLogic: true})
       }
     }
   }
@@ -188,6 +190,7 @@ class App extends Component {
     this.setState({editFeedName: ''});
     this.setState({editFeedCategory: ''});
     this.setState({editFeedURL: ''});
+    this.setState({editRenderLogic: false});
   }
 
   handleEditSubmit(e, newName, newCategory, newURL, id) {
@@ -198,16 +201,19 @@ class App extends Component {
         allFeeds[i].name = newName;
         allFeeds[i].category = newCategory;
         allFeeds[i].url = newURL;
-        console.log(allFeeds[i]);
+        //console.log(allFeeds[i]);
       }
     }
 
     //save new feed array locally
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
     this.setState({allFeeds: allFeeds});
+    this.setState({editRenderLogic: false});
     alert('Feed updated successfully!');
   }
 
+  //Note: for edit feeds section FeedBtnSearchBar has been rendered in
+  //EditFeedBtnList to make conditional rendering logic easier
   render() {
     return (
       <div className="App">
@@ -248,19 +254,17 @@ class App extends Component {
                 handleURLChange={(e) => this.handleURLChange(e)}
                 resetEditForm={() => this.resetEditForm()}
                 handleEditSubmit={(e, newName, newCategory, newURL, id) => this.handleEditSubmit(e, newName, newCategory, newURL, id)}
+                editRenderLogic={this.state.editRenderLogic}
               />
               <div className="edit__searchBox">
-                <FeedBtnSearchBar
-                  filterText={this.state.filterText}
-                  handleFilterTextChange={(filterText) =>
-                  this.handleFilterTextChange(filterText)}
-                />
                 <EditFeedBtnList
                   allFeeds={this.state.allFeeds}
                   filterText={this.state.filterText}
                   getFeedToEdit={(id) => {
                     this.getFeedToEdit(id);
                   }}
+                  handleFilterTextChange={(filterText) => this.handleFilterTextChange(filterText)}
+                  editRenderLogic={this.state.editRenderLogic}
                 />
               </div>
             </div>
