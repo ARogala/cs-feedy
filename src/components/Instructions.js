@@ -73,12 +73,18 @@ function Instructions() {
 			when entering the feed category. Feed URLs must be complete;
 			do not leave out the http.
 			I usually just copy and paste the feed URLs.</p>
-			<p>(Menu => Settings => Add Feeds)</p><br/>
+			<p>(Menu --> Settings --> Add Feeds)</p><br/>
+
+			<h4>Edit Feeds</h4>
+			<p>If you need to edit a feeds data navigate to the Edit Feeds page and click on
+			the feed that needs editing. A form will appear that displays that feeds current data.
+			Simply edit the name, category, and or url and click save changes.</p>
+			<p>(Menu --> Settings --> Edit Feeds)</p><br/>
 
 			<h4>Delete Feeds</h4>
 			<p>Deleting feeds is really easy, just navigate to the Delete Feeds page
 			and click on the feed you would like to delete.</p>
-			<p>(Menu => Settings => Delete Feeds)</p><br/>
+			<p>(Menu --> Settings --> Delete Feeds)</p><br/>
 
 			<h4>Backup and Restore Feeds</h4>
 			<p>To backup and restore your feeds, navigate to the Backup and Restore page
@@ -94,7 +100,7 @@ function Instructions() {
 			not on a remote server. This makes it possible to provide you with a
 			small data driven web app without colleting any of your information.
 			Enjoy!</p>
-			<p>(Menu => Settings => Backup and Restore)</p>
+			<p>(Menu --> Settings --> Backup and Restore)</p>
 
 		</div>
 	);
