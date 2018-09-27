@@ -31,13 +31,13 @@ Of course, please credit me (Andrew Rogala at https://github.com/ARogala/cs-feed
 
 ## Future Plans
 
-1. Add update functionality to feeds.
+1. Add social media share buttons to feed articles.
 
 2. Add the ability to have more than one feed list.
 
 3. Improve accessibility.
 
-3. Support Internet Explorer (Maybe??)
+3. Support Internet Explorer. (Maybe??)
 
 ## Dependencies
 
