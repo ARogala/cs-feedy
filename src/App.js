@@ -289,11 +289,14 @@ class App extends Component {
         )} />
 
         <Route path='/BackupRestoreFeeds' render={() => (
+            <div>
+              <Header />
               <BackupRestoreFeeds
                 restoreFeeds={(evt) => {
                   this.restoreFeeds(evt);
                 }}
               />
+            </div>
         )}/>
 
         <Route exact path='/' render={() => (
