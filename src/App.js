@@ -35,7 +35,11 @@ class App extends Component {
       //pull allFeeds from localStorage or set as an empty array if storage is empty
       allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]'),
       filterText: '',
-      feedId: 0
+      feedId: 0,
+      editFeedName: '',
+      editFeedCategory: '',
+      editFeedURL: '',
+      editFeedId: 0
     };
   }
 
@@ -144,8 +148,39 @@ class App extends Component {
     for(let i = 0; i < allFeeds.length; i++) {
       if(allFeeds[i].id === id) {
         console.log(allFeeds[i]);
+        this.setState({editFeedName: allFeeds[i].name});
+        this.setState({editFeedCategory: allFeeds[i].category});
+        this.setState({editFeedURL: allFeeds[i].url});
+        this.setState({editFeedId: allFeeds[i].id});
       }
     }
+  }
+
+  handleNameChange(e) {
+    this.setState({editFeedName: e.target.value});
+  }
+
+  handleCategoryChange(e) {
+    this.setState({editFeedCategory: e.target.value});
+  }
+
+  handleURLChange(e) {
+    this.setState({editFeedURL: e.target.value});
+  }
+
+  resetEditForm() {
+    this.setState({editFeedName: ''});
+    this.setState({editFeedCategory: ''});
+    this.setState({editFeedURL: ''});
+  }
+
+  handleEditSubmit(e, newName, newCategory, newURL, id) {
+    e.preventDefault();
+    console.log('must save data');
+    console.log(newName);
+    console.log(newCategory);
+    console.log(newURL);
+    console.log(id);
   }
 
   render() {
@@ -178,7 +213,17 @@ class App extends Component {
 
         <Route path='/EditFeeds' render={() => (
             <div className="edit">
-              <EditFeedForm />
+              <EditFeedForm
+                editFeedName={this.state.editFeedName}
+                editFeedCategory={this.state.editFeedCategory}
+                editFeedURL={this.state.editFeedURL}
+                editFeedId={this.state.editFeedId}
+                handleNameChange={(e) => this.handleNameChange(e)}
+                handleCategoryChange={(e) => this.handleCategoryChange(e)}
+                handleURLChange={(e) => this.handleURLChange(e)}
+                resetEditForm={() => this.resetEditForm()}
+                handleEditSubmit={(e, newName, newCategory, newURL, id) => this.handleEditSubmit(e, newName, newCategory, newURL, id)}
+              />
               <div className="edit__searchBox">
                 <FeedBtnSearchBar
                   filterText={this.state.filterText}

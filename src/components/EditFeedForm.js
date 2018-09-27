@@ -3,111 +3,98 @@ import PropTypes from 'prop-types';
 
 import './InputFeedForm.css';
 
-class EditFeedForm extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state={
-			feedName: '',
-			feedCategory: '',
-			feedURL: ''
-		};
-	}
+function EditFeedForm(props)  {
+	const editFeedName = props.editFeedName;
+	const editFeedCategory = props.editFeedCategory;
+	const editFeedURL = props.editFeedURL;
+	const editFeedId = props.editFeedId;
 
-	handleNameChange(e) {
-		this.setState({feedName: e.target.value});
-	}
+	const handleNameChange = props.handleNameChange;
+	const handleCategoryChange = props.handleCategoryChange;
+	const handleURLChange = props.handleURLChange;
+	const resetEditForm = props.resetEditForm;
+	const handleEditSubmit = props.handleEditSubmit;
 
-	handleCategoryChange(e) {
-		this.setState({feedCategory: e.target.value});
-	}
+	return (
+		<form className="addFeedForm"
+			onSubmit={(e, newName, newCategory, newURL, id) => {
+				handleEditSubmit(e, editFeedName, editFeedCategory, editFeedURL, editFeedId);
+				resetEditForm();
+			}}
+		>
+			<fieldset>
+				<legend>Edit RSS Feed Name, Category, and URL</legend>
+				<div>
+					<label htmlFor="name">Feed Name:</label>
+					<input
+						type="text"
+						id="name"
+						name="feed_name"
+						required
+						className="addFeedForm__input"
+						value={editFeedName}
+						onChange={(e) => handleNameChange(e)}
+					/>
+				</div>
+				<div>
+					<label htmlFor="category">Feed Category:</label>
+					<input
+						type="text"
+						id="category"
+						name="feed_category"
+						required
+						className="addFeedForm__input"
+						value={editFeedCategory}
+						onChange={(e) => handleCategoryChange(e)}
+					/>
+				</div>
+				<div>
+					<label htmlFor="url">Feed URL:</label>
+					<input
+						type="url"
+						id="url"
+						name="feed_url"
+						placeholder="http://example.com/feed"
+						required
+						className="addFeedForm__input"
+						value={editFeedURL}
+						onChange={(e) => handleURLChange(e)}
+					/>
+				</div>
 
-	handleURLChange(e) {
-		this.setState({feedURL: e.target.value});
-	}
-
-	handleSubmit(e) {
-		e.preventDefault();
-		//this.props.saveData(this.state.feedName, this.state.feedCategory, this.state.feedURL);
-		this.resetForm();
-	}
-
-	resetForm() {
-		this.setState({
-			feedName: '',
-			feedCategory: '',
-			feedURL: ''
-		});
-	}
-
-	render() {
-		return (
-			<form className="addFeedForm" onSubmit={(e) => this.handleSubmit(e)}>
-				<fieldset>
-					<legend>Edit RSS feed name, category, and url</legend>
-					<div>
-						<label htmlFor="name">Feed Name:</label>
-						<input
-							type="text"
-							id="name"
-							name="feed_name"
-							required
-							className="addFeedForm__input"
-							value={this.state.feedName}
-							onChange={(e) => this.handleNameChange(e)}
-						/>
-					</div>
-					<div>
-						<label htmlFor="category">Feed Category:</label>
-						<input
-							type="text"
-							id="category"
-							name="feed_category"
-							required
-							className="addFeedForm__input"
-							value={this.state.feedCategory}
-							onChange={(e) => this.handleCategoryChange(e)}
-						/>
-					</div>
-					<div>
-						<label htmlFor="url">Feed URL:</label>
-						<input
-							type="url"
-							id="url"
-							name="feed_url"
-							placeholder="http://example.com/feed"
-							required
-							className="addFeedForm__input"
-							value={this.state.feedURL}
-							onChange={(e) => this.handleURLChange(e)}
-						/>
-					</div>
-
-					<div className="addFeedForm__btnContainer">
-						<button
-							type="submit"
-							value="Submit"
-							className="addFeedForm__btn"
-						>
-							Save Changes
-						</button>
-						<button
-							type="button"
-							value="Reset"
-							className="addFeedForm__btn"
-							onClick={() => this.resetForm()}
-						>
-							Cancel
-						</button>
-					</div>
-				</fieldset>
-			</form>
-		);
-	}
+				<div className="addFeedForm__btnContainer">
+					<button
+						type="submit"
+						value="Submit"
+						className="addFeedForm__btn"
+					>
+						Save Changes
+					</button>
+					<button
+						type="button"
+						value="Reset"
+						className="addFeedForm__btn"
+						onClick={() => resetEditForm()}
+					>
+						Cancel
+					</button>
+				</div>
+			</fieldset>
+		</form>
+	);
 }
 
 
 export default EditFeedForm;
 
 EditFeedForm.propTypes = {
-	//saveData: PropTypes.func.isRequired
+	editFeedName: PropTypes.string.isRequired,
+	editFeedCategory: PropTypes.string.isRequired,
+	editFeedURL: PropTypes.string.isRequired,
+	editFeedId: PropTypes.number.isRequired,
+	handleNameChange: PropTypes.func.isRequired,
+	handleCategoryChange: PropTypes.func.isRequired,
+	handleURLChange: PropTypes.func.isRequired,
+	resetEditForm: PropTypes.func.isRequired,
+	handleEditSubmit: PropTypes.func.isRequired
 }
