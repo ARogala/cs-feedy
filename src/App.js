@@ -24,6 +24,7 @@ import './App.css';
 //import Icons
 import gitIcon from './img/github.png';
 import linkedinIcon from './img/linkedin.png';
+import portfolioIcon from './img/portfolio.png';
 
 class App extends Component {
   constructor(props) {
@@ -334,8 +335,9 @@ class App extends Component {
         <footer className="footer">
           <div className="footer__links-box">
             <p>Find me on:</p>
-            <a href="https://github.com/ARogala" target="_blank" rel="noopener noreferrer"><img src={gitIcon} alt="GitHub" className="footer__link-logo"/></a>
-            <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener noreferrer"><img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo"/></a>
+            <a href="https://github.com/ARogala" target="_blank" rel="noopener noreferrer"><img src={gitIcon} alt="GitHub" className="footer__link-logo" width="35" height="35"/></a>
+            <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener noreferrer"><img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo" width="35" height="35"/></a>
+            <a href="https://andrewrogala.surge.sh" target="_blank" rel="noopener noreferrer"><img src={portfolioIcon} alt="Portfolio Site" className="footer__link-logo" width="35" height="35"/></a>
           </div>
         </footer>
 
