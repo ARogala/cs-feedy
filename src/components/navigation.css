@@ -59,6 +59,10 @@
 	width: 4rem;
 	background-color: black;
 	position: absolute;
+
+	/*transition the rotate*/
+	-webkit-transition: transform .2s;
+	transition: transform .2s;
 }
 
 /*position the top and botton bars*/
@@ -71,6 +75,22 @@
 .nav__icon::before {
 	top: 1rem;
 	right: 0;
+}
+
+/*nav span animation*/
+.nav__checkbox:checked + .nav__button .nav__icon {
+	background-color: transparent;
+}
+/*by default things rotate about their center*/
+.nav__checkbox:checked + .nav__button .nav__icon::before {
+	top: 0;
+	/*360 + 45*/
+	transform: rotate(405deg);
+}
+
+.nav__checkbox:checked + .nav__button .nav__icon::after {
+	top: 0;
+	transform: rotate(-405deg);
 }
 
 /*
