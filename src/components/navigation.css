@@ -93,6 +93,14 @@
 	transform: rotate(-405deg);
 }
 
+.nav__button:hover .nav__icon::before {
+	top: 1.2rem;
+}
+
+.nav__button:hover .nav__icon::after {
+	top: -1.2rem;
+}
+
 /*
 	functionality: when the checkbox is checked
 	select every nav element that is before
