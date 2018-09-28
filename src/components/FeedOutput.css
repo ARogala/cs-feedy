@@ -99,6 +99,10 @@
 	float: none;
 }
 
+.feedArticle video {
+	display: block;
+}
+
 .feedArticle iframe {
 	height: auto;
 	max-width: 90vw;
