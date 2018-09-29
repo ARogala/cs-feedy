@@ -78,7 +78,7 @@ function FeedOutput(props) {
 	}
 	else if(Object.keys(feed).length === 0) {
 		return (
-			<p className="hint">Click a feed button above or input some feeds in
+			<p className="hint">Click a feed button or input some feeds in
 			the settings page.</p>
 		);
 	}

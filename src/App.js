@@ -302,31 +302,33 @@ class App extends Component {
 
         <Route exact path='/' render={() => (
           <div>
-          <Header />
-            <div className="searchBox">
-              <FeedBtnSearchBar
-                filterText={this.state.filterText}
-                handleFilterTextChange={(filterText) =>
-                  this.handleFilterTextChange(filterText)}
-              />
-              <FeedBtnList
-                allFeeds={this.state.allFeeds}
-                handleClick={(feedURL) => {
-                  this.setState({loading: true});
-                  this.setState({error: null});
-                  this.parseFeed(feedURL);
-                }}
-                filterText={this.state.filterText}
-              />
-            </div>
+            <Header />
+            <div className="flexDiv">
+              <div className="searchBox">
+                <FeedBtnSearchBar
+                  filterText={this.state.filterText}
+                  handleFilterTextChange={(filterText) =>
+                    this.handleFilterTextChange(filterText)}
+                />
+                <FeedBtnList
+                  allFeeds={this.state.allFeeds}
+                  handleClick={(feedURL) => {
+                    this.setState({loading: true});
+                    this.setState({error: null});
+                    this.parseFeed(feedURL);
+                  }}
+                  filterText={this.state.filterText}
+                />
+              </div>
 
-            <main role="main" className="feedOutput">
-              <FeedOutput
-                feed={this.state.feed}
-                error={this.state.error}
-                loading={this.state.loading}
-              />
-            </main>
+              <main role="main" className="feedOutput">
+                <FeedOutput
+                  feed={this.state.feed}
+                  error={this.state.error}
+                  loading={this.state.loading}
+                />
+              </main>
+            </div>
           </div>
         )}/>
 

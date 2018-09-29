@@ -34,20 +34,20 @@
 
 
 /*desktop adjustment*/
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
 	.scrollTop {
-		right: 20rem;
+		right: 6rem;
 	}
 }
 
 @media screen and (min-width: 1300px) {
 	.scrollTop {
-		right: 30rem;
+		right: 15rem;
 	}
 }
 
 @media screen and (min-width: 1500px) {
 	.scrollTop {
-		right: 37rem;
+		right: 25rem;
 	}
 }

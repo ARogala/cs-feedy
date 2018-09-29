@@ -119,6 +119,7 @@
 	display: none;
 	position: fixed;
 	top: 0px;
+	z-index: 10;
 }
 
 .nav__ul {
@@ -218,11 +219,7 @@
 }
 
 
-
 @media screen and (min-width: 1000px) {
-	.nav__button {
-		right: 20rem;
-	}
 	.nav {
 		width: 300px;
 	}
@@ -232,15 +229,21 @@
 	}
 }
 
+@media screen and (min-width: 1100px) {
+	.nav__button {
+		right: 6rem;
+	}
+}
+
 @media screen and (min-width: 1300px) {
 	.nav__button {
-		right: 30rem;
+		right: 15rem;
 	}
 }
 
 @media screen and (min-width: 1500px) {
 	.nav__button {
-		right: 37rem;
+		right: 25rem;
 	}
 	.nav {
 		width: 400px;
