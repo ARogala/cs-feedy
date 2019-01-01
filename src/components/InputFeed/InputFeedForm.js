@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './FeedForm.css';
+import '../FeedForm.css';
 
 class InputFeedForm extends React.Component {
 	constructor(props) {

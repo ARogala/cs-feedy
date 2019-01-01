@@ -39,11 +39,7 @@ Of course, please credit me (Andrew Rogala at https://github.com/ARogala/cs-feed
 
 4. Factor out button list filter function. It is the same in all three button lists
 
-5. Organize component folder (add some sub folders) there are lots of components
-
-6. Make a footer component.
-
-7. Support Internet Explorer. (Maybe??)
+5. Make a footer component.
 
 ## Dependencies
 

@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
+import FeedBtnSearchBar from '../SearchBar/FeedBtnSearchBar';
+
 //import groupBy helper function
-import groupBy from './groupBy';
+import groupBy from '../groupBy';
 
-import './DeleteFeedBtnList.css';
 
-function DeleteFeedBtnList(props) {
-	const deleteSingleFeed = props.deleteSingleFeed;
+import './EditFeedBtnList.css';
+
+function EditFeedBtnList(props) {
+	const editRenderLogic = props.editRenderLogic;
+	const getFeedToEdit = props.getFeedToEdit;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
+
 	//remove all spaces g is a global modifier (in other words replace all spaces with '')
 	filterText = filterText.replace(/ /g, '');
 
@@ -49,13 +54,13 @@ function DeleteFeedBtnList(props) {
 			dropDownUL.push(
 				<li key={i}>
 					<span>{allCategories[i]}:</span>
-					<ul aria-label="submenu" className="delete__dropDown">
+					<ul aria-label="submenu" className="edit__dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
-									className="delete__feedBtn"
-									onClick={() => deleteSingleFeed(feed.id)}
-									onKeyPress={() => deleteSingleFeed(feed.id)}
+									className="edit__feedBtn"
+									onClick={() => getFeedToEdit(feed.id)}
+									onKeyPress={() => getFeedToEdit(feed.id)}
 									key={feed.id}
 									id={feed.id}
 									role="button"
@@ -77,9 +82,9 @@ function DeleteFeedBtnList(props) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
 			singleFeed.push(
 				<li
-					className="delete__feedBtn"
-					onClick={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
-					onKeyPress={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
+					className="edit__feedBtn"
+					onClick={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
+					onKeyPress={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
@@ -91,22 +96,33 @@ function DeleteFeedBtnList(props) {
 		}
 	}
 
-	return (
-		<div>
-			<p className="deleteHint">Click a Feed to Delete</p>
-			<ul className="delete__feedBtnList">
-				{dropDownUL}
-				<span>Single Feeds:</span>
-				{singleFeed}
-			</ul>
-		</div>
-	);
+	if(editRenderLogic === false) {
+		return (
+			<div>
+				<FeedBtnSearchBar
+					filterText={props.filterText}
+					handleFilterTextChange={props.handleFilterTextChange}
+				/>
+				<p className="editHint">Click a Feed to Edit</p>
+				<ul className="edit__feedBtnList">
+					{dropDownUL}
+					<span>Single Feeds:</span>
+					{singleFeed}
+				</ul>
+			</div>
+		);
+	}
+	else {
+		return(null);
+	}
 }
 
-export default DeleteFeedBtnList;
+export default EditFeedBtnList;
 
-DeleteFeedBtnList.propTypes = {
+EditFeedBtnList.propTypes = {
 	allFeeds: PropTypes.array.isRequired,
-	deleteSingleFeed: PropTypes.func.isRequired,
-	filterText: PropTypes.string.isRequired
+	filterText: PropTypes.string.isRequired,
+	getFeedToEdit: PropTypes.func.isRequired,
+	handleFilterTextChange: PropTypes.func.isRequired,
+	editRenderLogic: PropTypes.bool.isRequired
 }

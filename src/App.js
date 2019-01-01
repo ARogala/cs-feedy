@@ -4,19 +4,19 @@ import RSSParser from 'rss-parser';
 import { Route } from 'react-router-dom';
 
 // import components
-import FeedBtnSearchBar from './components/FeedBtnSearchBar';
-import FeedBtnList from './components/FeedBtnList';
-import FeedOutput from './components/FeedOutput';
-import InputFeedForm from './components/InputFeedForm';
-import BackupRestoreFeeds from './components/BackupRestoreFeeds';
-import Navigation from './components/Navigation';
-import About from './components/About';
-import Instructions from './components/Instructions';
-import ScrollTopBtn from './components/ScrollTopBtn';
-import DeleteFeedBtnList from './components/DeleteFeedBtnList';
-import Header from './components/Header';
-import EditFeedBtnList from './components/EditFeedBtnList';
-import EditFeedForm from './components/EditFeedForm';
+import FeedBtnSearchBar from './components/SearchBar/FeedBtnSearchBar';
+import FeedBtnList from './components/FeedBtnList/FeedBtnList';
+import FeedOutput from './components/FeedOutput/FeedOutput';
+import InputFeedForm from './components/InputFeed/InputFeedForm';
+import BackupRestoreFeeds from './components/BackupRestoreFeeds/BackupRestoreFeeds';
+import Navigation from './components/Navigation/Navigation';
+import About from './components/About/About';
+import Instructions from './components/Instructions/Instructions';
+import ScrollTopBtn from './components/ScrollTopBtn/ScrollTopBtn';
+import DeleteFeedBtnList from './components/DeleteFeed/DeleteFeedBtnList';
+import Header from './components/Header/Header';
+import EditFeedBtnList from './components/EditFeed/EditFeedBtnList';
+import EditFeedForm from './components/EditFeed/EditFeedForm';
 
 //import styles
 import './App.css';

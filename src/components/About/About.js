@@ -51,7 +51,7 @@ function About() {
 			<p>Backing up local storage works by first getting the array of objects from local storage and
 			then converting that string to a blob of type text. Next generate a URL from the blob so the text
 			can be passed as a URL to API’s that expect URL’s. Finally, pass that URL, that now contains the data,
-			to an html anchor tag and pragmatically click the anchor tag for download.
+			to an html anchor tag and programmatically click the anchor tag for download.
 			See the backUpFeeds() function in BackupRestoreFeeds.js for code documentation.</p><br/>
 			<p>To restore the local storage state first get the file from the user with an html input tag of type file.
 			Then user JavaScript’s readAsText() method from the File API to read the text document.

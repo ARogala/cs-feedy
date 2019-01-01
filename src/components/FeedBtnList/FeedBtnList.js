@@ -1,22 +1,18 @@
+// import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
-import FeedBtnSearchBar from './FeedBtnSearchBar';
-
 //import groupBy helper function
-import groupBy from './groupBy';
+import groupBy from '../groupBy';
 
+import './FeedBtnList.css';
 
-import './EditFeedBtnList.css';
-
-function EditFeedBtnList(props) {
-	const editRenderLogic = props.editRenderLogic;
-	const getFeedToEdit = props.getFeedToEdit;
+function FeedBtnList(props) {
+	const handleClick = props.handleClick;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
-
 	//remove all spaces g is a global modifier (in other words replace all spaces with '')
 	filterText = filterText.replace(/ /g, '');
 
@@ -44,8 +40,8 @@ function EditFeedBtnList(props) {
 	//console.log(allCategories);
 
 	/*
-	for each feed category if the number of feeds is greater than 1
-	build the DOM
+		for each feed category if the number of feeds is greater than 1
+		build the DOM
 	*/
 	const dropDownUL = [];
 	for(let i = 0; i < allCategories.length; i++ ) {
@@ -54,13 +50,13 @@ function EditFeedBtnList(props) {
 			dropDownUL.push(
 				<li key={i}>
 					<span>{allCategories[i]}:</span>
-					<ul aria-label="submenu" className="edit__dropDown">
+					<ul aria-label="submenu" className="dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
-									className="edit__feedBtn"
-									onClick={() => getFeedToEdit(feed.id)}
-									onKeyPress={() => getFeedToEdit(feed.id)}
+									className="feedBtn"
+									onClick={() => handleClick(feed.url)}
+									onKeyPress={() => handleClick(feed.url)}
 									key={feed.id}
 									id={feed.id}
 									role="button"
@@ -82,9 +78,9 @@ function EditFeedBtnList(props) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
 			singleFeed.push(
 				<li
-					className="edit__feedBtn"
-					onClick={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
-					onKeyPress={() => getFeedToEdit(groupedFeeds[allCategories[i]][0].id)}
+					className="feedBtn"
+					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
+					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
@@ -95,34 +91,22 @@ function EditFeedBtnList(props) {
 			);
 		}
 	}
+	//console.log(allFeeds);
 
-	if(editRenderLogic === false) {
-		return (
-			<div>
-				<FeedBtnSearchBar
-					filterText={props.filterText}
-					handleFilterTextChange={props.handleFilterTextChange}
-				/>
-				<p className="editHint">Click a Feed to Edit</p>
-				<ul className="edit__feedBtnList">
-					{dropDownUL}
-					<span>Single Feeds:</span>
-					{singleFeed}
-				</ul>
-			</div>
-		);
-	}
-	else {
-		return(null);
-	}
+	return (
+		<ul className="feedBtnList">
+			{dropDownUL}
+			<span>Single Feeds:</span>
+			{singleFeed}
+		</ul>
+	);
+
 }
 
-export default EditFeedBtnList;
+export default FeedBtnList;
 
-EditFeedBtnList.propTypes = {
-	allFeeds: PropTypes.array.isRequired,
-	filterText: PropTypes.string.isRequired,
-	getFeedToEdit: PropTypes.func.isRequired,
-	handleFilterTextChange: PropTypes.func.isRequired,
-	editRenderLogic: PropTypes.bool.isRequired
+FeedBtnList.propTypes = {
+  allFeeds: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  filterText: PropTypes.string.isRequired
 }

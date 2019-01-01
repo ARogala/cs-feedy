@@ -1,16 +1,15 @@
-// import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 
 //import groupBy helper function
-import groupBy from './groupBy';
+import groupBy from '../groupBy';
 
-import './FeedBtnList.css';
+import './DeleteFeedBtnList.css';
 
-function FeedBtnList(props) {
-	const handleClick = props.handleClick;
+function DeleteFeedBtnList(props) {
+	const deleteSingleFeed = props.deleteSingleFeed;
 	const allFeeds = props.allFeeds;
 	let filterText = props.filterText.trim();
 	//remove all spaces g is a global modifier (in other words replace all spaces with '')
@@ -40,8 +39,8 @@ function FeedBtnList(props) {
 	//console.log(allCategories);
 
 	/*
-		for each feed category if the number of feeds is greater than 1
-		build the DOM
+	for each feed category if the number of feeds is greater than 1
+	build the DOM
 	*/
 	const dropDownUL = [];
 	for(let i = 0; i < allCategories.length; i++ ) {
@@ -50,13 +49,13 @@ function FeedBtnList(props) {
 			dropDownUL.push(
 				<li key={i}>
 					<span>{allCategories[i]}:</span>
-					<ul aria-label="submenu" className="dropDown">
+					<ul aria-label="submenu" className="delete__dropDown">
 						{groupedFeeds[allCategories[i]].map((feed) => {
 							return (
 								<li
-									className="feedBtn"
-									onClick={() => handleClick(feed.url)}
-									onKeyPress={() => handleClick(feed.url)}
+									className="delete__feedBtn"
+									onClick={() => deleteSingleFeed(feed.id)}
+									onKeyPress={() => deleteSingleFeed(feed.id)}
 									key={feed.id}
 									id={feed.id}
 									role="button"
@@ -78,9 +77,9 @@ function FeedBtnList(props) {
 		if(groupedFeeds[allCategories[i]].length === 1) {
 			singleFeed.push(
 				<li
-					className="feedBtn"
-					onClick={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
-					onKeyPress={() => handleClick(groupedFeeds[allCategories[i]][0].url)}
+					className="delete__feedBtn"
+					onClick={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
+					onKeyPress={() => deleteSingleFeed(groupedFeeds[allCategories[i]][0].id)}
 					key={groupedFeeds[allCategories[i]][0].id}
 					id={groupedFeeds[allCategories[i]][0].id}
 					role="button"
@@ -91,22 +90,23 @@ function FeedBtnList(props) {
 			);
 		}
 	}
-	//console.log(allFeeds);
 
 	return (
-		<ul className="feedBtnList">
-			{dropDownUL}
-			<span>Single Feeds:</span>
-			{singleFeed}
-		</ul>
+		<div>
+			<p className="deleteHint">Click a Feed to Delete</p>
+			<ul className="delete__feedBtnList">
+				{dropDownUL}
+				<span>Single Feeds:</span>
+				{singleFeed}
+			</ul>
+		</div>
 	);
-
 }
 
-export default FeedBtnList;
+export default DeleteFeedBtnList;
 
-FeedBtnList.propTypes = {
-  allFeeds: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  filterText: PropTypes.string.isRequired
+DeleteFeedBtnList.propTypes = {
+	allFeeds: PropTypes.array.isRequired,
+	deleteSingleFeed: PropTypes.func.isRequired,
+	filterText: PropTypes.string.isRequired
 }
