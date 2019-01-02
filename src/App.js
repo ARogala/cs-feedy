@@ -30,7 +30,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      feed: {},
+      feed: JSON.parse(localStorage.getItem('feed') || '{}'),
       error: null,
       loading: null,
       //pull allFeeds from localStorage or set as an empty array if storage is empty
@@ -66,6 +66,7 @@ class App extends Component {
         this.setState({loading: false});
       }
       else {
+        localStorage.setItem('feed', JSON.stringify(parsed.feed));
         this.setState({feed: parsed.feed});
         this.setState({loading: false});
       }
