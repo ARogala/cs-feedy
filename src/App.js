@@ -340,7 +340,7 @@ class App extends Component {
             <p>Find me on:</p>
             <a href="https://github.com/ARogala" target="_blank" rel="noopener noreferrer"><img src={gitIcon} alt="GitHub" className="footer__link-logo" width="35" height="35"/></a>
             <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener noreferrer"><img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo" width="35" height="35"/></a>
-            <a href="https://andrewrogala.surge.sh" target="_blank" rel="noopener noreferrer"><img src={portfolioIcon} alt="Portfolio Site" className="footer__link-logo" width="35" height="35"/></a>
+            <a href="https://www.rogalawebdesigns.com/" target="_blank" rel="noopener noreferrer"><img src={portfolioIcon} alt="Portfolio Site" className="footer__link-logo" width="35" height="35"/></a>
           </div>
         </footer>
 

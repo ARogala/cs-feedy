@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import focusWithin from 'focus-within';
 
-import './navigation.css';
+import './Navigation.css';
 
 focusWithin(document);
 
