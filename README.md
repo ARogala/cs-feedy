@@ -39,8 +39,6 @@ Of course, please credit me (Andrew Rogala at https://github.com/ARogala/cs-feed
 
 4. Factor out button list filter function. It is the same in all three button lists
 
-5. Make a footer component.
-
 ## Dependencies
 
 1. CORS Anywhere https://github.com/Rob--W/cors-anywhere
