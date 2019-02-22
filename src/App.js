@@ -34,7 +34,10 @@ class App extends Component {
       error: null,
       loading: null,
       //pull allFeeds from localStorage or set as an empty array if storage is empty
-      allFeeds: JSON.parse(localStorage.getItem('allFeeds') || '[]'),
+      allFeeds: JSON.parse(
+        localStorage.getItem('allFeeds') ||
+          '[{"name":"Contemporary Math","category":"Math","url":"http://www.ams.org/rss/conm.rss","id":0},{"name":"The Math Blog","category":"Math","url":"http://math-blog.com/feed/","id":1},{"name":"News","category":"Reddit","url":"https://www.reddit.com/r/worldnews/.rss","id":2},{"name":"BuzzFeed","category":"News","url":"https://www.buzzfeed.com/world.xml","id":4},{"name":"Yahoo","category":"News","url":"https://www.yahoo.com/news/world/rss","id":5},{"name":"RT News","category":"News","url":"https://www.rt.com/rss/news","id":6},{"name":"Independent","category":"News","url":"http://www.independent.co.uk/news/world/rss","id":7},{"name":"BBC","category":"News","url":"http://feeds.bbci.co.uk/news/world/rss.xml","id":8},{"name":"New York Times","category":"News","url":"https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml","id":9},{"name":"Shutterbug","category":"Photography","url":"https://www.shutterbug.com/taxonomy/term/730/all/feed","id":10},{"name":"Visual Wilderness ","category":"Photography","url":"https://visualwilderness.com/feed","id":11},{"name":"History Today","category":"History","url":"https://www.historytoday.com/feed/rss.xml","id":14},{"name":"Loaded Landscapes","category":"Photography","url":"http://loadedlandscapes.com/feed","id":12},{"name":"YouTube Space","category":"Space","url":"https://www.youtube.com/feeds/videos.xml?user=ouramazingspace","id":15},{"name":"Space","category":"Reddit","url":"https://www.reddit.com/r/space/.rss","id":3},{"name":"Earth Sky","category":"Photography","url":"http://earthsky.org/space/feed","id":13},{"name":"NASA Image of the Day","category":"Science","url":"http://www.nasa.gov/rss/dyn/image_of_the_day.rss","id":16}]'
+      ),
       filterText: '',
       feedId: 0,
       editFeedName: '',
@@ -61,22 +64,19 @@ class App extends Component {
       /*
         when the parser throws an error parsed will be undefined
       */
-      if(err !== null) {
-        this.setState({error: err});
-        this.setState({loading: false});
-      }
-      else {
+      if (err !== null) {
+        this.setState({ error: err });
+        this.setState({ loading: false });
+      } else {
         localStorage.setItem('feed', JSON.stringify(parsed.feed));
-        this.setState({feed: parsed.feed});
-        this.setState({loading: false});
+        this.setState({ feed: parsed.feed });
+        this.setState({ loading: false });
       }
-
     });
-
   }
 
   handleFilterTextChange(filterText) {
-    this.setState({filterText: filterText});
+    this.setState({ filterText: filterText });
   }
 
   /*
@@ -90,20 +90,20 @@ class App extends Component {
   */
   restoreFeeds(evt) {
     let files = evt.target.files; // FileList object from user
-    if(files[0].name === 'CSFeedyBackUp.txt') { //ensure proper file is uploaded
+    if (files[0].name === 'CSFeedyBackUp.txt') {
+      //ensure proper file is uploaded
       let file = files[0];
       let reader = new FileReader();
       //readAsText is asynchronous, so need to use the onload callback
       //to see the result
       reader.readAsText(file);
-      reader.onload = (event) => {
+      reader.onload = event => {
         let allFeeds = JSON.parse(event.target.result);
         localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-        this.setState({allFeeds: allFeeds});
+        this.setState({ allFeeds: allFeeds });
         alert('Feeds Successfully Restored.');
-      }
-    }
-    else {
+      };
+    } else {
       alert('To restore your feeds please upload the same file downloaded as a backup. It is named CSFeedyBackUp.txt');
     }
   }
@@ -121,14 +121,14 @@ class App extends Component {
     allFeeds[newFeedIndex].url = feedURL;
 
     //add feedId
-    for(let i = 0; i < allFeeds.length; i++) {
+    for (let i = 0; i < allFeeds.length; i++) {
       allFeeds[i].id = feedId;
       feedId = feedId + 1;
     }
 
     //save new feed array locally
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-    this.setState({allFeeds: allFeeds});
+    this.setState({ allFeeds: allFeeds });
     alert('Feed added successfully!');
   }
 
@@ -136,13 +136,13 @@ class App extends Component {
     const allFeeds = this.state.allFeeds;
     //loop through allFeeds array delete object with matching id
     //set localStorage equal to the modified allFeeds array
-    for(let i = 0; i < allFeeds.length; i++) {
-      if(allFeeds[i].id === id) {
-        allFeeds.splice(i,1);
+    for (let i = 0; i < allFeeds.length; i++) {
+      if (allFeeds[i].id === id) {
+        allFeeds.splice(i, 1);
       }
     }
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-    this.setState({allFeeds: allFeeds});
+    this.setState({ allFeeds: allFeeds });
   }
 
   /*
@@ -164,42 +164,42 @@ class App extends Component {
   */
   getFeedToEdit(id) {
     const allFeeds = this.state.allFeeds;
-    for(let i = 0; i < allFeeds.length; i++) {
-      if(allFeeds[i].id === id) {
+    for (let i = 0; i < allFeeds.length; i++) {
+      if (allFeeds[i].id === id) {
         //console.log(allFeeds[i]);
-        this.setState({editFeedName: allFeeds[i].name});
-        this.setState({editFeedCategory: allFeeds[i].category});
-        this.setState({editFeedURL: allFeeds[i].url});
-        this.setState({editFeedId: allFeeds[i].id});
-        this.setState({editRenderLogic: true})
+        this.setState({ editFeedName: allFeeds[i].name });
+        this.setState({ editFeedCategory: allFeeds[i].category });
+        this.setState({ editFeedURL: allFeeds[i].url });
+        this.setState({ editFeedId: allFeeds[i].id });
+        this.setState({ editRenderLogic: true });
       }
     }
   }
 
   handleNameChange(e) {
-    this.setState({editFeedName: e.target.value});
+    this.setState({ editFeedName: e.target.value });
   }
 
   handleCategoryChange(e) {
-    this.setState({editFeedCategory: e.target.value});
+    this.setState({ editFeedCategory: e.target.value });
   }
 
   handleURLChange(e) {
-    this.setState({editFeedURL: e.target.value});
+    this.setState({ editFeedURL: e.target.value });
   }
 
   resetEditForm() {
-    this.setState({editFeedName: ''});
-    this.setState({editFeedCategory: ''});
-    this.setState({editFeedURL: ''});
-    this.setState({editRenderLogic: false});
+    this.setState({ editFeedName: '' });
+    this.setState({ editFeedCategory: '' });
+    this.setState({ editFeedURL: '' });
+    this.setState({ editRenderLogic: false });
   }
 
   handleEditSubmit(e, newName, newCategory, newURL, id) {
     let allFeeds = this.state.allFeeds;
     e.preventDefault();
-    for(let i = 0; i < allFeeds.length; i++) {
-      if(allFeeds[i].id === id) {
+    for (let i = 0; i < allFeeds.length; i++) {
+      if (allFeeds[i].id === id) {
         allFeeds[i].name = newName;
         allFeeds[i].category = newCategory;
         allFeeds[i].url = newURL;
@@ -209,8 +209,8 @@ class App extends Component {
 
     //save new feed array locally
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-    this.setState({allFeeds: allFeeds});
-    this.setState({editRenderLogic: false});
+    this.setState({ allFeeds: allFeeds });
+    this.setState({ editRenderLogic: false });
     alert('Feed updated successfully!');
   }
 
@@ -219,131 +219,152 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <Navigation />
 
-        <Route path='/About' render={() => (
-          <div>
-            <Header />
-            <About />
-          </div>
-        )} />
+        <Route
+          path="/About"
+          render={() => (
+            <div>
+              <Header />
+              <About />
+            </div>
+          )}
+        />
 
-        <Route path='/Instructions' render={() => (
-          <div>
-            <Header />
-            <Instructions />
-          </div>
-        )} />
+        <Route
+          path="/Instructions"
+          render={() => (
+            <div>
+              <Header />
+              <Instructions />
+            </div>
+          )}
+        />
 
-        <Route path='/AddFeeds' render={() => (
-              <InputFeedForm
-                saveData={(feedName, feedCategory, feedURL) => {
-                  this.saveData(feedName, feedCategory, feedURL);
-                }}
-              />
-        )} />
+        <Route
+          path="/AddFeeds"
+          render={() => (
+            <InputFeedForm
+              saveData={(feedName, feedCategory, feedURL) => {
+                this.saveData(feedName, feedCategory, feedURL);
+              }}
+            />
+          )}
+        />
 
-        <Route path='/EditFeeds' render={() => (
+        <Route
+          path="/EditFeeds"
+          render={() => (
             <div className="edit">
               <EditFeedForm
                 editFeedName={this.state.editFeedName}
                 editFeedCategory={this.state.editFeedCategory}
                 editFeedURL={this.state.editFeedURL}
                 editFeedId={this.state.editFeedId}
-                handleNameChange={(e) => this.handleNameChange(e)}
-                handleCategoryChange={(e) => this.handleCategoryChange(e)}
-                handleURLChange={(e) => this.handleURLChange(e)}
+                handleNameChange={e => this.handleNameChange(e)}
+                handleCategoryChange={e => this.handleCategoryChange(e)}
+                handleURLChange={e => this.handleURLChange(e)}
                 resetEditForm={() => this.resetEditForm()}
-                handleEditSubmit={(e, newName, newCategory, newURL, id) => this.handleEditSubmit(e, newName, newCategory, newURL, id)}
+                handleEditSubmit={(e, newName, newCategory, newURL, id) =>
+                  this.handleEditSubmit(e, newName, newCategory, newURL, id)
+                }
                 editRenderLogic={this.state.editRenderLogic}
               />
               <div className="edit__searchBox">
                 <EditFeedBtnList
                   allFeeds={this.state.allFeeds}
                   filterText={this.state.filterText}
-                  getFeedToEdit={(id) => {
+                  getFeedToEdit={id => {
                     this.getFeedToEdit(id);
                   }}
-                  handleFilterTextChange={(filterText) => this.handleFilterTextChange(filterText)}
+                  handleFilterTextChange={filterText => this.handleFilterTextChange(filterText)}
                   editRenderLogic={this.state.editRenderLogic}
                 />
               </div>
             </div>
-        )} />
+          )}
+        />
 
-        <Route path='/DeleteFeeds' render={() => (
+        <Route
+          path="/DeleteFeeds"
+          render={() => (
             <div className="delete__searchBox">
               <FeedBtnSearchBar
                 filterText={this.state.filterText}
-                handleFilterTextChange={(filterText) =>
-                  this.handleFilterTextChange(filterText)}
+                handleFilterTextChange={filterText => this.handleFilterTextChange(filterText)}
               />
               <DeleteFeedBtnList
                 allFeeds={this.state.allFeeds}
-                deleteSingleFeed={(id) => {
+                deleteSingleFeed={id => {
                   this.deleteSingleFeed(id);
                 }}
                 filterText={this.state.filterText}
               />
             </div>
+          )}
+        />
 
-        )} />
-
-        <Route path='/BackupRestoreFeeds' render={() => (
+        <Route
+          path="/BackupRestoreFeeds"
+          render={() => (
             <div>
               <Header />
               <BackupRestoreFeeds
-                restoreFeeds={(evt) => {
+                restoreFeeds={evt => {
                   this.restoreFeeds(evt);
                 }}
               />
             </div>
-        )}/>
+          )}
+        />
 
-        <Route exact path='/' render={() => (
-          <div>
-            <Header />
-            <div className="flexDiv">
-              <div className="searchBox">
-                <FeedBtnSearchBar
-                  filterText={this.state.filterText}
-                  handleFilterTextChange={(filterText) =>
-                    this.handleFilterTextChange(filterText)}
-                />
-                <FeedBtnList
-                  allFeeds={this.state.allFeeds}
-                  handleClick={(feedURL) => {
-                    this.setState({loading: true});
-                    this.setState({error: null});
-                    this.parseFeed(feedURL);
-                  }}
-                  filterText={this.state.filterText}
-                />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <Header />
+              <div className="flexDiv">
+                <div className="searchBox">
+                  <FeedBtnSearchBar
+                    filterText={this.state.filterText}
+                    handleFilterTextChange={filterText => this.handleFilterTextChange(filterText)}
+                  />
+                  <FeedBtnList
+                    allFeeds={this.state.allFeeds}
+                    handleClick={feedURL => {
+                      this.setState({ loading: true });
+                      this.setState({ error: null });
+                      this.parseFeed(feedURL);
+                    }}
+                    filterText={this.state.filterText}
+                  />
+                </div>
+
+                <main role="main" className="feedOutput">
+                  <FeedOutput feed={this.state.feed} error={this.state.error} loading={this.state.loading} />
+                </main>
               </div>
-
-              <main role="main" className="feedOutput">
-                <FeedOutput
-                  feed={this.state.feed}
-                  error={this.state.error}
-                  loading={this.state.loading}
-                />
-              </main>
             </div>
-          </div>
-        )}/>
+          )}
+        />
 
         <ScrollTopBtn />
 
         <footer className="footer">
           <div className="footer__links-box">
             <p>Find me on:</p>
-            <a href="https://github.com/ARogala" target="_blank" rel="noopener noreferrer"><img src={gitIcon} alt="GitHub" className="footer__link-logo" width="35" height="35"/></a>
-            <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener noreferrer"><img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo" width="35" height="35"/></a>
-            <a href="https://www.rogalawebdesigns.com/" target="_blank" rel="noopener noreferrer"><img src={portfolioIcon} alt="Portfolio Site" className="footer__link-logo" width="35" height="35"/></a>
+            <a href="https://github.com/ARogala" target="_blank" rel="noopener noreferrer">
+              <img src={gitIcon} alt="GitHub" className="footer__link-logo" width="35" height="35" />
+            </a>
+            <a href="https://www.linkedin.com/in/andrew-rogala" target="_blank" rel="noopener noreferrer">
+              <img src={linkedinIcon} alt="LinkedIn" className="footer__link-logo" width="35" height="35" />
+            </a>
+            <a href="https://www.rogalawebdesigns.com/" target="_blank" rel="noopener noreferrer">
+              <img src={portfolioIcon} alt="Portfolio Site" className="footer__link-logo" width="35" height="35" />
+            </a>
           </div>
         </footer>
-
       </div>
     );
   }
