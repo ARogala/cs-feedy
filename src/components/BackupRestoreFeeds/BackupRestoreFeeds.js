@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './BackupRestoreFeeds.css';
 
 function BackupRestoreFeeds(props) {
-	const restoreFeeds   = props.restoreFeeds;
+	const restoreFeeds = props.restoreFeeds;
 	/*
 		store the text to backup as a string in the backUpFileText variable
 		convert the sting to a blob which is raw data that represents our text
@@ -17,7 +17,7 @@ function BackupRestoreFeeds(props) {
 	*/
 	function backUpFeeds() {
 		let backUpFileText = localStorage.getItem('allFeeds');
-		let backUpFileTextAsBlob = new Blob([backUpFileText], {type:"text/plain"});
+		let backUpFileTextAsBlob = new Blob([backUpFileText], { type: 'text/plain' });
 		let backUpFileAsURL = window.URL.createObjectURL(backUpFileTextAsBlob);
 		let fileName = 'CSFeedyBackUp.txt';
 
@@ -58,7 +58,7 @@ function BackupRestoreFeeds(props) {
 						name="feeds_backup"
 						accept=".txt"
 						className="bkupRestoreForm__input--file"
-						onChange={(evt) => restoreFeeds(evt)}
+						onChange={evt => restoreFeeds(evt)}
 					/>
 
 					<label htmlFor="backupFile">Restore Feeds</label>
@@ -72,4 +72,4 @@ export default BackupRestoreFeeds;
 
 BackupRestoreFeeds.propTypes = {
 	restoreFeeds: PropTypes.func.isRequired
-}
+};

@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import RSSParser from 'rss-parser';
 import { Route } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 // import components
 import FeedBtnSearchBar from './components/SearchBar/FeedBtnSearchBar';
@@ -47,6 +49,21 @@ class App extends Component {
       editRenderLogic: false
     };
   }
+
+  success = () => {
+    toast.success(`Feeds Successfully Restored.`, {
+      position: toast.POSITION.TOP_CENTER
+    });
+  };
+
+  error = () => {
+    toast.error(
+      'To restore your feeds please upload the same file downloaded as a backup. It is named CSFeedyBackUp.txt',
+      {
+        position: toast.POSITION.TOP_CENTER
+      }
+    );
+  };
 
   parseFeed(feedURL) {
     /*
@@ -101,10 +118,10 @@ class App extends Component {
         let allFeeds = JSON.parse(event.target.result);
         localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
         this.setState({ allFeeds: allFeeds });
-        alert('Feeds Successfully Restored.');
+        this.success();
       };
     } else {
-      alert('To restore your feeds please upload the same file downloaded as a backup. It is named CSFeedyBackUp.txt');
+      this.error();
     }
   }
 
@@ -129,7 +146,6 @@ class App extends Component {
     //save new feed array locally
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
     this.setState({ allFeeds: allFeeds });
-    alert('Feed added successfully!');
   }
 
   deleteSingleFeed(id) {
@@ -211,7 +227,6 @@ class App extends Component {
     localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
     this.setState({ allFeeds: allFeeds });
     this.setState({ editRenderLogic: false });
-    alert('Feed updated successfully!');
   }
 
   //Note: for edit feeds section FeedBtnSearchBar has been rendered in
@@ -365,6 +380,7 @@ class App extends Component {
             </a>
           </div>
         </footer>
+        <ToastContainer />
       </div>
     );
   }

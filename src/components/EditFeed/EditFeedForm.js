@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import '../FeedForm.css';
 
-function EditFeedForm(props)  {
+function success() {
+	toast.success(`Feed updated successfully!`, {
+		position: toast.POSITION.TOP_CENTER
+	});
+}
+
+function EditFeedForm(props) {
 	const editRenderLogic = props.editRenderLogic;
 
 	const editFeedName = props.editFeedName;
@@ -17,11 +24,13 @@ function EditFeedForm(props)  {
 	const resetEditForm = props.resetEditForm;
 	const handleEditSubmit = props.handleEditSubmit;
 
-	if(editRenderLogic) {
+	if (editRenderLogic) {
 		return (
-			<form className="FeedForm"
+			<form
+				className="FeedForm"
 				onSubmit={(e, newName, newCategory, newURL, id) => {
 					handleEditSubmit(e, editFeedName, editFeedCategory, editFeedURL, editFeedId);
+					success();
 					resetEditForm();
 				}}
 			>
@@ -36,7 +45,7 @@ function EditFeedForm(props)  {
 							required
 							className="FeedForm__input"
 							value={editFeedName}
-							onChange={(e) => handleNameChange(e)}
+							onChange={e => handleNameChange(e)}
 						/>
 					</div>
 					<div>
@@ -48,7 +57,7 @@ function EditFeedForm(props)  {
 							required
 							className="FeedForm__input"
 							value={editFeedCategory}
-							onChange={(e) => handleCategoryChange(e)}
+							onChange={e => handleCategoryChange(e)}
 						/>
 					</div>
 					<div>
@@ -61,36 +70,25 @@ function EditFeedForm(props)  {
 							required
 							className="FeedForm__input"
 							value={editFeedURL}
-							onChange={(e) => handleURLChange(e)}
+							onChange={e => handleURLChange(e)}
 						/>
 					</div>
 
 					<div className="FeedForm__btnContainer">
-						<button
-							type="submit"
-							value="Submit"
-							className="FeedForm__btn"
-						>
+						<button type="submit" value="Submit" className="FeedForm__btn">
 							Save Changes
 						</button>
-						<button
-							type="button"
-							value="Reset"
-							className="FeedForm__btn"
-							onClick={() => resetEditForm()}
-						>
+						<button type="button" value="Reset" className="FeedForm__btn" onClick={() => resetEditForm()}>
 							Cancel
 						</button>
 					</div>
 				</fieldset>
 			</form>
 		);
-	}
-	else {
-		return(null);
+	} else {
+		return null;
 	}
 }
-
 
 export default EditFeedForm;
 
@@ -105,4 +103,4 @@ EditFeedForm.propTypes = {
 	resetEditForm: PropTypes.func.isRequired,
 	handleEditSubmit: PropTypes.func.isRequired,
 	editRenderLogic: PropTypes.bool.isRequired
-}
+};

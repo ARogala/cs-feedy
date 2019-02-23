@@ -1,33 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import '../FeedForm.css';
 
 class InputFeedForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state={
+		this.state = {
 			feedName: '',
 			feedCategory: '',
 			feedURL: ''
 		};
 	}
 
+	success = () => {
+		toast.success(`Feed added successfully!`, {
+			position: toast.POSITION.TOP_CENTER
+		});
+	};
+
 	handleNameChange(e) {
-		this.setState({feedName: e.target.value});
+		this.setState({ feedName: e.target.value });
 	}
 
 	handleCategoryChange(e) {
-		this.setState({feedCategory: e.target.value});
+		this.setState({ feedCategory: e.target.value });
 	}
 
 	handleURLChange(e) {
-		this.setState({feedURL: e.target.value});
+		this.setState({ feedURL: e.target.value });
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.saveData(this.state.feedName, this.state.feedCategory, this.state.feedURL);
+		this.success();
 		this.resetForm();
 	}
 
@@ -41,7 +49,7 @@ class InputFeedForm extends React.Component {
 
 	render() {
 		return (
-			<form className="FeedForm" onSubmit={(e) => this.handleSubmit(e)}>
+			<form className="FeedForm" onSubmit={e => this.handleSubmit(e)}>
 				<fieldset>
 					<legend>Enter RSS feed name, category, and url</legend>
 					<div>
@@ -53,7 +61,7 @@ class InputFeedForm extends React.Component {
 							required
 							className="FeedForm__input"
 							value={this.state.feedName}
-							onChange={(e) => this.handleNameChange(e)}
+							onChange={e => this.handleNameChange(e)}
 						/>
 					</div>
 					<div>
@@ -65,7 +73,7 @@ class InputFeedForm extends React.Component {
 							required
 							className="FeedForm__input"
 							value={this.state.feedCategory}
-							onChange={(e) => this.handleCategoryChange(e)}
+							onChange={e => this.handleCategoryChange(e)}
 						/>
 					</div>
 					<div>
@@ -78,24 +86,15 @@ class InputFeedForm extends React.Component {
 							required
 							className="FeedForm__input"
 							value={this.state.feedURL}
-							onChange={(e) => this.handleURLChange(e)}
+							onChange={e => this.handleURLChange(e)}
 						/>
 					</div>
 
 					<div className="FeedForm__btnContainer">
-						<button
-							type="submit"
-							value="Submit"
-							className="FeedForm__btn"
-						>
+						<button type="submit" value="Submit" className="FeedForm__btn">
 							Add Feed
 						</button>
-						<button
-							type="button"
-							value="Reset"
-							className="FeedForm__btn"
-							onClick={() => this.resetForm()}
-						>
+						<button type="button" value="Reset" className="FeedForm__btn" onClick={() => this.resetForm()}>
 							Cancel
 						</button>
 					</div>
@@ -109,4 +108,4 @@ export default InputFeedForm;
 
 InputFeedForm.propTypes = {
 	saveData: PropTypes.func.isRequired
-}
+};
